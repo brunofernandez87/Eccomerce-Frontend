@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/Logo Eccomerce.jpg";
+import logo from "../../assets/Logo eccomerce.jpeg";
 export default function Header({ loggedIn = false }) {
   return (
     <>
