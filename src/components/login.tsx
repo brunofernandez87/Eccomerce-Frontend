@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Login() {
   return (
     <div className="Div-Login">
-      <form action="/Login" method="Post" id="ingresar">
+      <form action="/Login" method="Post">
         <label htmlFor="username">Usuario:</label>
         <input type="text" name="username" required />
         <label htmlFor="password_hash"> Password: </label>
@@ -13,7 +13,10 @@ export default function Login() {
         </button>
       </form>
       <Link to="/register" title="Register">
-        <button>Registrarse</button>
+        <span>Registrarse</span>
+      </Link>
+      <Link to="/recovery" title="Recuperar Contraseña">
+        <span>Recuperar Contraseña</span>
       </Link>
     </div>
   );
