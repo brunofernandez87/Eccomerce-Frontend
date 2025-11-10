@@ -1,25 +1,30 @@
 import { Link } from "react-router-dom";
-
+import logo from "../../assets/Logo Eccomerce.jpg";
 export default function Header({ loggedIn = false }) {
   return (
-    <nav className="Nav-header">
-      <Link to="/" title="Home">
-        <button>inicio</button>
-      </Link>
-      <button>consulta frecuentes</button>
-      <button>contactanos</button>
-      {loggedIn ? (
-        <a title="Perfil" href="login">
-          <span>Perfil</span>
-        </a>
-      ) : (
-        <Link to="/login" title="Profile">
-          <button>Iniciar Sesion</button>
-        </Link>
-      )}
-      <div>
-        <button>Carrito de compras</button>
+    <>
+      <div className="Logo">
+        <img src={logo} alt="Logo jpg" />
       </div>
-    </nav>
+      <nav className="Nav-header">
+        <Link to="/" title="Home">
+          <button>inicio</button>
+        </Link>
+        <button>consulta frecuentes</button>
+        <button>contactanos</button>
+        {loggedIn ? (
+          <Link to="/profile" title="Perfil">
+            <button>Perfil </button>
+          </Link>
+        ) : (
+          <Link to="/login" title="Iniciar Sesion">
+            <button>Iniciar Sesion</button>
+          </Link>
+        )}
+        <div>
+          <button>Carrito de compras</button>
+        </div>
+      </nav>
+    </>
   );
 }
