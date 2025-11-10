@@ -1,0 +1,92 @@
+[
+  {
+    "id_product": 1,
+    "name": "Pet Safety Belt for Car",
+    "description": "Seat belt attachment to keep dogs safe during car rides.",
+    "category": "Pets",
+    "price": 14.99,
+    "stock": 19,
+    "create": "5/24/2025"
+  },
+  {
+    "id_product": 2,
+    "name": "Outdoor Folding Table",
+    "description": "Lightweight and portable folding table for camping or picnics.",
+    "category": "Outdoor",
+    "price": 39.99,
+    "stock": 36,
+    "create": "5/5/2025"
+  },
+  {
+    "id_product": 3,
+    "name": "Nutty Trail Mix",
+    "description": "A blend of nuts, seeds, and dried fruits for snacking.",
+    "category": "Food - Snacks",
+    "price": 4.29,
+    "stock": 59,
+    "create": "10/22/2025"
+  },
+  {
+    "id_product": 4,
+    "name": "Multi-Tool",
+    "description": "Versatile multi-tool with 15 different functions.",
+    "category": "Outdoor",
+    "price": 39.99,
+    "stock": 99,
+    "create": "8/14/2025"
+  },
+  {
+    "id_product": 5,
+    "name": "Eco-Friendly Yoga Blocks",
+    "description": "Sustainable foam blocks for yoga practice.",
+    "category": "Fitness",
+    "price": 15.99,
+    "stock": 81,
+    "create": "11/25/2024"
+  },
+  {
+    "id_product": 6,
+    "name": "Organic Spinach",
+    "description": "Fresh organic spinach, great for salads or cooking.",
+    "category": "Food - Produce",
+    "price": 2.99,
+    "stock": 100,
+    "create": "7/17/2025"
+  },
+  {
+    "id_product": 7,
+    "name": "Beard Grooming Kit",
+    "description": "Everything you need for maintaining a healthy beard.",
+    "category": "Grooming",
+    "price": 34.99,
+    "stock": 18,
+    "create": "8/27/2025"
+  },
+  {
+    "id_product": 8,
+    "name": "Collapsible Folding Chair",
+    "description": "Lightweight and portable chair for camping or events.",
+    "category": "Outdoor",
+    "price": 29.99,
+    "stock": 96,
+    "create": "5/7/2025"
+  },
+  {
+    "id_product": 9,
+    "name": "Basil Pesto Pasta",
+    "description": "Pasta tossed with fresh basil pesto, simple and delicious.",
+    "category": "Food - Prepared Meals",
+    "price": 6.49,
+    "stock": 20,
+    "create": "8/1/2025"
+  },
+  {
+    "id_product": 10,
+    "name": "Coconut Macaroons",
+    "description": "Chewy cookies made with coconut, perfect for sweet cravings.",
+    "category": "Food - Confectionery",
+    "price": 4.99,
+    "stock": 47,
+    "create": "8/17/2025"
+  }
+]
