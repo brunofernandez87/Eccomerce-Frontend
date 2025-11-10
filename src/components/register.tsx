@@ -7,11 +7,11 @@ export default function Register() {
         <label htmlFor="username"> username</label>
         <input type="text" name="username" required />
         <label htmlFor="email">email</label>
-        <input type="email" name="email" />
+        <input type="email" name="email" required />
         <label htmlFor="password_hash"> Password: </label>
         <input type="password" name="password_hash" required />
         <button type="submit" id="iniciar_sesion">
-          Iniciar Sesión
+          Registrarse
         </button>
       </form>
     </div>
