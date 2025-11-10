@@ -6,7 +6,8 @@
     "category": "Pets",
     "price": 14.99,
     "stock": 19,
-    "create": "5/24/2025"
+    "create": "5/24/2025",
+    "image": "https://picsum.photos/seed/product1/600/400"
   },
   {
     "id_product": 2,
@@ -15,7 +16,8 @@
     "category": "Outdoor",
     "price": 39.99,
     "stock": 36,
-    "create": "5/5/2025"
+    "create": "5/5/2025",
+    "image": "https://picsum.photos/seed/product2/600/400"
   },
   {
     "id_product": 3,
@@ -24,7 +26,8 @@
     "category": "Food - Snacks",
     "price": 4.29,
     "stock": 59,
-    "create": "10/22/2025"
+    "create": "10/22/2025",
+    "image": "https://picsum.photos/seed/product3/600/400"
   },
   {
     "id_product": 4,
@@ -33,7 +36,8 @@
     "category": "Outdoor",
     "price": 39.99,
     "stock": 99,
-    "create": "8/14/2025"
+    "create": "8/14/2025",
+    "image": "https://picsum.photos/seed/product4/600/400"
   },
   {
     "id_product": 5,
@@ -42,7 +46,8 @@
     "category": "Fitness",
     "price": 15.99,
     "stock": 81,
-    "create": "11/25/2024"
+    "create": "11/25/2024",
+    "image": "https://picsum.photos/seed/product5/600/400"
   },
   {
     "id_product": 6,
@@ -51,7 +56,8 @@
     "category": "Food - Produce",
     "price": 2.99,
     "stock": 100,
-    "create": "7/17/2025"
+    "create": "7/17/2025",
+    "image": "https://picsum.photos/seed/product6/600/400"
   },
   {
     "id_product": 7,
@@ -60,7 +66,8 @@
     "category": "Grooming",
     "price": 34.99,
     "stock": 18,
-    "create": "8/27/2025"
+    "create": "8/27/2025",
+    "image": "https://picsum.photos/seed/product7/600/400"
   },
   {
     "id_product": 8,
@@ -69,7 +76,8 @@
     "category": "Outdoor",
     "price": 29.99,
     "stock": 96,
-    "create": "5/7/2025"
+    "create": "5/7/2025",
+    "image": "https://picsum.photos/seed/product8/600/400"
   },
   {
     "id_product": 9,
@@ -78,7 +86,8 @@
     "category": "Food - Prepared Meals",
     "price": 6.49,
     "stock": 20,
-    "create": "8/1/2025"
+    "create": "8/1/2025",
+    "image": "https://picsum.photos/seed/product9/600/400"
   },
   {
     "id_product": 10,
@@ -87,6 +96,7 @@
     "category": "Food - Confectionery",
     "price": 4.99,
     "stock": 47,
-    "create": "8/17/2025"
+    "create": "8/17/2025",
+    "image": "https://picsum.photos/seed/product10/600/400"
   }
 ]
