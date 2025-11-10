@@ -1,5 +1,5 @@
 export default function CardProduct(props) {
-  const { image, name, description, category, price, stock } = props;
+  const { image, name, description, category, price, stock, cartIN } = props;
   return (
     <div className="Card-Product">
       <div className="Product-Image">
@@ -22,8 +22,12 @@ export default function CardProduct(props) {
       <div>
         <p>stock: {stock}</p>
       </div>
-      <button>Agregar al carrito</button>
-      <button>Comprar ahora</button>
+      {!cartIN && (
+        <div>
+          <button>Agregar al carrito</button>
+          <button>Comprar ahora</button>
+        </div>
+      )}
     </div>
   );
 }

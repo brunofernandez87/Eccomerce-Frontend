@@ -22,7 +22,9 @@ export default function Header({ loggedIn = false }) {
           </Link>
         )}
         <div>
-          <button>Carrito de compras</button>
+          <Link to="/cart" title="Carrito de compras">
+            <button>Carrito de compras</button>
+          </Link>
         </div>
       </nav>
     </>
