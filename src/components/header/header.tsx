@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 export default function Header({ loggedIn = false }) {
   return (
     <nav className="Nav-header">
-      <button>inicio</button>
-      <button>producto</button>
+      <Link to="/" title="Home">
+        <button>inicio</button>
+      </Link>
       <button>consulta frecuentes</button>
       <button>contactanos</button>
       {loggedIn ? (
@@ -12,7 +13,7 @@ export default function Header({ loggedIn = false }) {
           <span>Perfil</span>
         </a>
       ) : (
-        <Link to="/login" title="Perfil">
+        <Link to="/login" title="Profile">
           <button>Iniciar Sesion</button>
         </Link>
       )}
