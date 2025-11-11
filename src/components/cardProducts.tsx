@@ -48,7 +48,6 @@ export default function CardProducts() {
           >
             Eliminar
           </button>
-          <button>Modificar</button>
         </div>
       ))}
       <div>
