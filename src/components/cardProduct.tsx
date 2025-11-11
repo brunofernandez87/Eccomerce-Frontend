@@ -4,7 +4,9 @@ export default function CardProduct(props) {
   const { productID, cartIN } = props;
   const { id } = useParams();
   let product;
-  if (id) {
+  if (productID) {
+    product = productMock.find((p) => p.id_product === productID);
+  } else {
     product = productMock.find((p) => p.id_product === parseInt(id));
     if (!product) {
       return (
@@ -13,11 +15,10 @@ export default function CardProduct(props) {
         </div>
       );
     }
-  } else {
-    product = productMock.find((p) => p.id_product === productID);
   }
 
-  const { image, name, description, category, price, stock } = product;
+  const { id_product, image, name, description, category, price, stock } =
+    product;
 
   return (
     <div className="Card-Product">
@@ -44,7 +45,7 @@ export default function CardProduct(props) {
       {!cartIN && (
         <div>
           <button>Agregar al carrito</button>
-          <Link to="/cart">
+          <Link to={`/cart/${id_product}`}>
             <button>Comprar ahora</button>
           </Link>
         </div>
