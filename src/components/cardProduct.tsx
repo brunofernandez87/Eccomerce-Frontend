@@ -1,5 +1,24 @@
+import { Link, useParams } from "react-router-dom";
+import productMock from "../mock/productMock.json";
 export default function CardProduct(props) {
-  const { image, name, description, category, price, stock, cartIN } = props;
+  const { productID, cartIN } = props;
+  const { id } = useParams();
+  let product;
+  if (id) {
+    product = productMock.find((p) => p.id_product === parseInt(id));
+    if (!product) {
+      return (
+        <div>
+          <p> Producto no encontrado</p>
+        </div>
+      );
+    }
+  } else {
+    product = productMock.find((p) => p.id_product === productID);
+  }
+
+  const { image, name, description, category, price, stock } = product;
+
   return (
     <div className="Card-Product">
       <div className="Product-Image">
@@ -25,7 +44,9 @@ export default function CardProduct(props) {
       {!cartIN && (
         <div>
           <button>Agregar al carrito</button>
-          <button>Comprar ahora</button>
+          <Link to="/cart">
+            <button>Comprar ahora</button>
+          </Link>
         </div>
       )}
     </div>
