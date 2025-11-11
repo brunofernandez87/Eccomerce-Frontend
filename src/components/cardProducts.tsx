@@ -39,7 +39,7 @@ export default function CardProducts() {
               </p>
             </div>
           </Link>
-          <button
+          <button //hacer que dependa de si es admin o no
             onClick={() => {
               setproductfilter(
                 productfilter.filter((p) => p.id_product !== product.id_product)
