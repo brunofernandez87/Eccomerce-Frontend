@@ -4,7 +4,10 @@ import { useState } from "react";
 
 export default function CardProducts() {
   const [page, setpage] = useState(1);
-  const productfilter = productMock.filter((p) => p.stock > 0);
+  // const productfilter = productMock.filter((p) => p.stock > 0);
+  const [productfilter, setproductfilter] = useState(
+    productMock.filter((p) => p.stock > 0)
+  );
   const maxProduct = 5;
   const limite = page * maxProduct;
   const limiteant = limite - maxProduct;
@@ -35,8 +38,16 @@ export default function CardProducts() {
                 <b>Precio:{product.price}</b>
               </p>
             </div>
-            {/* <div className="Card-Stocks">stock: {product.stock}</div> */}
           </Link>
+          <button //hacer que dependa de si es admin o no
+            onClick={() => {
+              setproductfilter(
+                productfilter.filter((p) => p.id_product !== product.id_product)
+              );
+            }}
+          >
+            Eliminar
+          </button>
         </div>
       ))}
       <div>

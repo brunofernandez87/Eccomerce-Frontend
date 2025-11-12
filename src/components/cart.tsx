@@ -1,18 +1,27 @@
 import CardProduct from "./cardProduct";
 import mockProduct from "../mock/productMock.json";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 export default function Cart() {
   const mock = mockProduct[0];
   const mock2 = mockProduct[2];
   const { id } = useParams();
-  let totally = [mock, mock2];
   let product;
-  if (id) {
-    product = mockProduct.find((p) => p.id_product === parseInt(id));
-    if (product) {
-      totally = [...totally, { ...product }];
+  const initialCart = () => {
+    let totallyfirst = [mock, mock2];
+    if (id) {
+      product = mockProduct.find((p) => p.id_product === parseInt(id));
+      if (product) {
+        totallyfirst = [...totallyfirst, { ...product }];
+      }
     }
+    return totallyfirst;
+  };
+  const [totally, settotally] = useState(initialCart);
+  function handleclick() {
+    alert("compra exitosa");
+    settotally([]);
   }
 
   return (
@@ -23,13 +32,7 @@ export default function Cart() {
         </div>
       ))}
       <div>
-        <button
-          onClick={() => {
-            alert("Compra exitosa");
-          }}
-        >
-          Comprar
-        </button>
+        <button onClick={handleclick}>Comprar</button>
       </div>
     </>
   );

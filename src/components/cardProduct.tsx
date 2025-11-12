@@ -42,6 +42,7 @@ export default function CardProduct(props) {
       <div>
         <p>stock: {stock}</p>
       </div>
+      <button>Modificar</button>
       {!cartIN && (
         <div>
           <button>Agregar al carrito</button>
