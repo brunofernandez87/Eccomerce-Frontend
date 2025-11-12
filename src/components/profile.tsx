@@ -1,12 +1,27 @@
-import { Link } from "react-router-dom";
-import User from "../mock/userMock.json";
-const mockUser = User[0];
-const image = mockUser.image;
-const name = mockUser.name;
-const username = mockUser.username;
-const password = "contra 123";
-const email = mockUser.email;
-export default function Profile() {
+import { Link, useParams } from "react-router-dom";
+import userMock from "../mock/userMock.json";
+import { useEffect, useState } from "react";
+export default function Profile({ setisloggedIn }) {
+  const [showpassword, setshowpassword] = useState(false);
+  const { usernam, password } = useParams(); //despues cambiar usernam por una variable mas descriptiva
+  const user = userMock.find(
+    (u) => u.username === usernam && u.password_hash === password
+  );
+  useEffect(() => {
+    if (!user) {
+      setisloggedIn(false);
+    } else {
+      setisloggedIn(true);
+    }
+    return () => {
+      setisloggedIn(false);
+    };
+  }, [user, setisloggedIn]);
+  if (!user) {
+    return <h1> No se inicio sesion</h1>;
+  }
+  const { image, name, username, password_hash, email } = user;
+  const textoOculto = "*".repeat(password_hash.length);
   return (
     <div className="Div-Profile">
       <div className="Image-Profile">
@@ -19,7 +34,10 @@ export default function Profile() {
         <p>Username: {username}</p>
       </div>
       <div className="Password-Profile">
-        <p>Password: {password}</p>
+        {showpassword ? <p>Password: {password_hash}</p> : <p>{textoOculto}</p>}
+        <button onClick={() => setshowpassword(!showpassword)}>
+          {showpassword ? <p>Ocultar contraseña</p> : <p>Mostrar contraseña</p>}
+        </button>
       </div>
       <div className="Email-Profile">
         <p>Email: {email}</p>

@@ -27,8 +27,23 @@ export default function CardProducts() {
           copyfilter.sort((a, b) => a.name.localeCompare(b.name))
         );
         break;
+      case "viejo a nuevo":
+        setproductfilter(
+          copyfilter.sort((a, b) => a.id_product - b.id_product)
+        );
+        break;
+      case "mas nuevo a mas viejo":
+        setproductfilter(
+          copyfilter.sort((a, b) => b.id_product - a.id_product)
+        );
+        break;
+      case "precio mayor menor":
+        setproductfilter(copyfilter.sort((a, b) => b.price - a.price));
+        break;
+      case "precio menor mayor":
+        setproductfilter(copyfilter.sort((a, b) => a.price - b.price));
+        break;
     }
-
     setpage(1);
   }
   return (
@@ -39,6 +54,9 @@ export default function CardProducts() {
       </form>
       <select onChange={handleClicknew}>
         /* pasar a home */
+        <option value={""}> Ordenar por</option>
+        <option value={"precio mayor menor"}>precio de mayor a menor </option>
+        <option value={"precio menor mayor"}>precio de menor a mayor </option>
         <option value={"viejo a nuevo"}> mas viejo a mas nuevo</option>
         <option value={"alfabeticamente"}>alfatebeticamente </option>
         <option value={"mas nuevo a mas viejo"}> mas nuevo a mas viejo</option>

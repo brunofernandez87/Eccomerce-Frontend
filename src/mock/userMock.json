@@ -2,7 +2,7 @@
   {
     "id_user": 1,
     "email": "gvanhaeften0@vimeo.com",
-    "password_hash": "$2a$04$35Tbw9mAa6IHAo9UaJa/IezkfrCh02VS0OHiSubpnNdX6IUSu97tq",
+    "password_hash": "password_1",
     "id_rol": 1,
     "create": "10/13/2025",
     "name": "Gayler",
@@ -12,7 +12,7 @@
   {
     "id_user": 2,
     "email": "jwinchcum1@samsung.com",
-    "password_hash": "$2a$04$zAGb7hKgNvmtNU8KGGmQpOKG2hNokszmEjtm2qe31sW4teh1ezXky",
+    "password_hash": "password_2",
     "id_rol": 1,
     "create": "8/4/2025",
     "name": "Jacquenette",
@@ -22,7 +22,7 @@
   {
     "id_user": 3,
     "email": "cgilbanks2@rediff.com",
-    "password_hash": "$2a$04$871VOk2PaNanEEDpt1F6kObEzJYS7g.kv86A4wjwzA5fZBu6mSi0G",
+    "password_hash": "password_3",
     "id_rol": 1,
     "create": "11/11/2024",
     "name": "Calhoun",
@@ -32,7 +32,7 @@
   {
     "id_user": 4,
     "email": "krenoden3@uiuc.edu",
-    "password_hash": "$2a$04$rdDrUQwD/ae9SXcVk.a9WuNwI13PgoteaEtWWhUL1.UOtsQC/6dBu",
+    "password_hash": "password_4",
     "id_rol": 1,
     "create": "9/17/2025",
     "name": "Katee",
@@ -42,7 +42,7 @@
   {
     "id_user": 5,
     "email": "rwhitaker4@comsenz.com",
-    "password_hash": "$2a$04$JsSv9RSiqSc8rw4.tBeMxue84BngzpZ5ZHhesq6ci/oy3s64rDxZ6",
+    "password_hash": "password_5",
     "id_rol": 1,
     "create": "7/3/2025",
     "name": "Randell",
@@ -52,7 +52,7 @@
   {
     "id_user": 6,
     "email": "tpuckring5@bandcamp.com",
-    "password_hash": "$2a$04$Y8EBzdz5j96mZ0gpAUojWe3wSfy/R9WTpesVekrirl9U91HyH9rWG",
+    "password_hash": "password_6",
     "id_rol": 1,
     "create": "3/29/2025",
     "name": "Tracie",
@@ -62,7 +62,7 @@
   {
     "id_user": 7,
     "email": "gmckern6@salon.com",
-    "password_hash": "$2a$04$Wo/zSpPvR0uvKbr4TSwiP.0yDGylTrwIJoc3uB4MU/ZgBG88TTtla",
+    "password_hash": "password_7",
     "id_rol": 1,
     "create": "6/28/2025",
     "name": "Giselbert",
@@ -72,7 +72,7 @@
   {
     "id_user": 8,
     "email": "wgorhardt7@cafepress.com",
-    "password_hash": "$2a$04$DsTKx5qKM.ZwteOpDM/WceAXvTOalgyMJeTJv/cj/AeLphVx41Mf6",
+    "password_hash": "password_8",
     "id_rol": 1,
     "create": "3/12/2025",
     "name": "Willem",
@@ -82,7 +82,7 @@
   {
     "id_user": 9,
     "email": "afounds8@360.cn",
-    "password_hash": "$2a$04$0tMA65Id38Q5CGV/zQeHwuzM38GasAU8qUBbYifqBORNt5zEZbuGa",
+    "password_hash": "password_9",
     "id_rol": 1,
     "create": "7/15/2025",
     "name": "Anstice",
@@ -92,7 +92,7 @@
   {
     "id_user": 10,
     "email": "aleopold9@slate.com",
-    "password_hash": "$2a$04$RYsDvwCgsNvCFSInTELMFuPKPb4q3iKBZuLA.mIkJSnXr3IIMe4he",
+    "password_hash": "password_10",
     "id_rol": 1,
     "create": "7/12/2025",
     "name": "Adriane",
