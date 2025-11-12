@@ -18,8 +18,31 @@ export default function CardProducts() {
   function handleClickPrevious() {
     setpage(page - 1);
   }
+  function handleClicknew(event) {
+    const value = event.target.value;
+    const copyfilter = [...productfilter];
+    switch (value) {
+      case "alfabeticamente":
+        setproductfilter(
+          copyfilter.sort((a, b) => a.name.localeCompare(b.name))
+        );
+        break;
+    }
+
+    setpage(1);
+  }
   return (
     <>
+      <form action="">
+        <input type="search" name="search" id="search" placeholder="buscar" />
+        <button>🔍</button>
+      </form>
+      <select onChange={handleClicknew}>
+        /* pasar a home */
+        <option value={"viejo a nuevo"}> mas viejo a mas nuevo</option>
+        <option value={"alfabeticamente"}>alfatebeticamente </option>
+        <option value={"mas nuevo a mas viejo"}> mas nuevo a mas viejo</option>
+      </select>
       {products.map((product) => (
         <div key={product.id_product} className="Card-Products">
           <Link to={`/product/${product.id_product}`} className="link-Products">
@@ -54,7 +77,7 @@ export default function CardProducts() {
         {page > 1 && (
           <button onClick={handleClickPrevious}>Pagina anterior</button>
         )}
-        {limite < productMock.length && (
+        {limite < productfilter.length && (
           <button onClick={handleClickNext}>Pagina siguiente</button>
         )}
       </div>

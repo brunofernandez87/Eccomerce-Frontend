@@ -25,16 +25,6 @@ export default function Header({ loggedIn = false }) {
           <Link to="/cart" title="Carrito de compras">
             <button>Carrito de compras</button>
           </Link>
-          <form action="">
-            <input
-              type="search"
-              name="search"
-              id="search"
-              placeholder="buscar"
-            />
-            <button>🔍</button>
-          </form>
-          <button>ordenar de mas viejo a mas nuevo</button>
         </div>
       </nav>
     </>
