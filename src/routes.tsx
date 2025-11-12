@@ -7,7 +7,15 @@ import ChangePassword from "./components/changePassword";
 import Recovery from "./components/recovery";
 import Cart from "./components/cart";
 import CardProduct from "./components/cardProduct";
+import { useState } from "react";
 export default function Routs({ setuser }) {
+  const [cartContent, setcartContent] = useState([]);
+  function handleAddToCart(product) {
+    if (product) {
+      alert("producto añadido al carrito");
+      setcartContent([...cartContent, product]);
+    }
+  }
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -19,9 +27,22 @@ export default function Routs({ setuser }) {
       />
       <Route path="/changePassword" element={<ChangePassword />} />
       <Route path="/recovery" element={<Recovery />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/cart/:id" element={<Cart />} />
-      <Route path="/product/:id" element={<CardProduct />} />
+      <Route
+        path="/cart"
+        element={
+          <Cart cartContent={cartContent} setcartContent={setcartContent} />
+        }
+      />
+      <Route
+        path="/cart/:id"
+        element={
+          <Cart cartContent={cartContent} setcartContent={setcartContent} />
+        }
+      />
+      <Route
+        path="/product/:id"
+        element={<CardProduct addtocart={handleAddToCart} />}
+      />
     </Routes>
   );
 }
