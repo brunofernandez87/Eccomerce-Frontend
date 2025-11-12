@@ -11,7 +11,6 @@ export default function Footer() {
         <a href="">+54291861457</a>
       </p>
       <p>Bahia Blanca Springfield 514</p>
-      <button>Politicas</button>
       <button>Acerca de nosotros</button>
       <button>Redes sociales</button>
     </footer>
