@@ -7,7 +7,7 @@ import ChangePassword from "./components/changePassword";
 import Recovery from "./components/recovery";
 import Cart from "./components/cart";
 import CardProduct from "./components/cardProduct";
-export default function Routs({ setisloggedIn }) {
+export default function Routs({ setuser }) {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -15,7 +15,7 @@ export default function Routs({ setisloggedIn }) {
       <Route path="/register" element={<Register />} />
       <Route
         path="/profile/:usernam/:password"
-        element={<Profile setisloggedIn={setisloggedIn} />}
+        element={<Profile setuser={setuser} />}
       />
       <Route path="/changePassword" element={<ChangePassword />} />
       <Route path="/recovery" element={<Recovery />} />

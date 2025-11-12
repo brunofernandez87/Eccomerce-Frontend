@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo eccomerce.jpeg";
-export default function Header({ loggedIn = false }) {
+export default function Header({ user }) {
   return (
     <>
       <div className="Logo">
@@ -12,8 +12,11 @@ export default function Header({ loggedIn = false }) {
         </Link>
         <button>consulta frecuentes</button>
         <button>contactanos</button>
-        {loggedIn ? (
-          <Link to="/profile" title="Perfil">
+        {user ? (
+          <Link
+            to={`/profile/${user.username}/${user.password_hash}`}
+            title="Perfil"
+          >
             <button>Perfil </button>
           </Link>
         ) : (

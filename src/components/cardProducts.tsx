@@ -4,10 +4,8 @@ import { useState } from "react";
 
 export default function CardProducts() {
   const [page, setpage] = useState(1);
-  // const productfilter = productMock.filter((p) => p.stock > 0);
-  const [productfilter, setproductfilter] = useState(
-    productMock.filter((p) => p.stock > 0)
-  );
+  const productFilt = productMock.filter((p) => p.stock > 0);
+  const [productfilter, setproductfilter] = useState(productFilt);
   const maxProduct = 5;
   const limite = page * maxProduct;
   const limiteant = limite - maxProduct;
@@ -17,6 +15,15 @@ export default function CardProducts() {
   }
   function handleClickPrevious() {
     setpage(page - 1);
+  }
+  function searchProduct(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const name = formData.get("search");
+    const result = productFilt.filter((p) => {
+      return p.name.toLowerCase().includes(name);
+    });
+    setproductfilter(result);
   }
   function handleClicknew(event) {
     const value = event.target.value;
@@ -48,7 +55,7 @@ export default function CardProducts() {
   }
   return (
     <>
-      <form action="">
+      <form onSubmit={searchProduct}>
         <input type="search" name="search" id="search" placeholder="buscar" />
         <button>🔍</button>
       </form>

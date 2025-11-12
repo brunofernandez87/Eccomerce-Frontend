@@ -1,22 +1,23 @@
 import { Link, useParams } from "react-router-dom";
 import userMock from "../mock/userMock.json";
 import { useEffect, useState } from "react";
-export default function Profile({ setisloggedIn }) {
+export default function Profile({ setuser }) {
   const [showpassword, setshowpassword] = useState(false);
   const { usernam, password } = useParams(); //despues cambiar usernam por una variable mas descriptiva
   const user = userMock.find(
     (u) => u.username === usernam && u.password_hash === password
   );
+
   useEffect(() => {
     if (!user) {
-      setisloggedIn(false);
+      setuser(null);
     } else {
-      setisloggedIn(true);
+      setuser(user);
     }
-    return () => {
-      setisloggedIn(false);
-    };
-  }, [user, setisloggedIn]);
+    // return () => {
+    //   setisloggedIn(false);
+    // };
+  }, [user, setuser]);
   if (!user) {
     return <h1> No se inicio sesion</h1>;
   }

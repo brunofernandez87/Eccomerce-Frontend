@@ -5,11 +5,11 @@ import Routs from "./routes";
 import { useState } from "react";
 
 function App() {
-  const [isloggedIn, setisloggedIn] = useState(false);
+  const [user, setuser] = useState(null);
   return (
     <>
-      <Header loggedIn={isloggedIn} />
-      <Routs setisloggedIn={setisloggedIn} />
+      <Header user={user} />
+      <Routs setuser={setuser} />
       <Footer />
     </>
   );
