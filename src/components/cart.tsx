@@ -24,7 +24,9 @@ export default function Cart({ cartContent, setcartContent }) {
         </div>
       ))}
       <div>
-        <button onClick={handleclick}>Comprar</button>
+        {cartContent.length > 0 && (
+          <button onClick={handleclick}>Comprar</button>
+        )}
       </div>
     </>
   );
