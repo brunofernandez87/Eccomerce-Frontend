@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import productMock from "../mock/productMock.json";
 export default function CardProduct(props) {
-  const { productID, cartIN, addtocart } = props;
+  const { productID, cartIN, addtocart, user } = props;
   const { id } = useParams();
   let product;
   if (productID) {
@@ -45,7 +45,12 @@ export default function CardProduct(props) {
 
       {!cartIN && (
         <div>
-          <button>Modificar</button>
+          {user.id_rol == 3 && (
+            <>
+              <button>Modificar</button>
+            </>
+          )}
+
           <button onClick={() => addtocart(product)}>Agregar al carrito</button>
           <Link to={`/cart/${id_product}`}>
             <button>Comprar ahora</button>
