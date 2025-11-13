@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -11,7 +13,10 @@ export default function Footer() {
         <a href="">+54291861457</a>
       </p>
       <p>Bahia Blanca Springfield 514</p>
-      <button>Acerca de nosotros</button>
+      <Link to="/aboutUS">
+        <button>Acerca de nosotros</button>
+      </Link>
+
       <button>Redes sociales</button>
     </footer>
   );

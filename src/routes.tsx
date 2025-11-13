@@ -10,6 +10,7 @@ import CardProduct from "./components/cardProduct";
 import Report from "./components/report";
 import Error from "./components/error";
 import CreateProduct from "./components/createProduct";
+import AboutUS from "./components/aboutUs";
 import { useState } from "react";
 export default function Routs({ user, setuser }) {
   const [cartContent, setcartContent] = useState([]);
@@ -49,6 +50,7 @@ export default function Routs({ user, setuser }) {
       <Route path="/report" element={<Report user={user} />} />
       <Route path="/error/:error" element={<Error />} />
       <Route path="/create" element={<CreateProduct />} />
+      <Route path="/aboutUs" element={<AboutUS />} />
     </Routes>
   );
 }
