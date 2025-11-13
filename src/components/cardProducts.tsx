@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import productMock from "../mock/productMock.json";
 import { useState } from "react";
+import "../css/cardsproducts.css";
 
 export default function CardProducts({ user }) {
   const [page, setpage] = useState(1);
@@ -55,9 +56,9 @@ export default function CardProducts({ user }) {
   }
   return (
     <>
-      <form onSubmit={searchProduct}>
+      <form onSubmit={searchProduct} className="form-Product">
         <input type="search" name="search" id="search" placeholder="buscar" />
-        <button>🔍</button>
+        <button id="botton-search">🔍</button>
       </form>
       <select onChange={handleClicknew}>
         /* pasar a home */
@@ -72,7 +73,11 @@ export default function CardProducts({ user }) {
         <div key={product.id_product} className="Card-Products">
           <Link to={`/product/${product.id_product}`} className="link-Products">
             <div className="Card-Images">
-              <img src={product.image} alt={product.name} />
+              <img
+                src={product.image}
+                alt={product.name}
+                className="Image-product"
+              />
             </div>
             <div className="Card-Names">
               <p>
