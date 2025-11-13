@@ -25,7 +25,9 @@ export default function CreateProduct() {
         <label htmlFor="stock">Stock:</label>
         <input type="number" name="stock" required></input>
         {/* hacer mas adelante para que se pueda agregar imagen */}
-        <button onClick={handleClick}>Crear</button>
+        <button type="button" onClick={handleClick}>
+          Crear
+        </button>
       </form>
     </div>
   );
