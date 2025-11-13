@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export default function Contact() {
   const navigate = useNavigate();
   function handleClick() {
-    alert("consulta enviada");
+    alert("consulta enviada contactaremos a la brevedad");
     navigate("/");
   }
   return (
