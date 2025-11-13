@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import productMock from "../mock/productMock.json";
 import { useState } from "react";
-import "../css/cardsproducts.css";
+import "../styles/cardsproducts.css";
 
 export default function CardProducts({ user }) {
   const [page, setpage] = useState(1);
@@ -95,7 +95,7 @@ export default function CardProducts({ user }) {
           {user != null && (
             <>
               {user.id_rol == 3 && (
-                /* al ser admin podes eliminar */ <button
+                /* al ser admin podes eliminar */ <button className="Delete-Button"
                   onClick={() => {
                     setproductfilter(
                       productfilter.filter(
@@ -104,7 +104,7 @@ export default function CardProducts({ user }) {
                     );
                   }}
                 >
-                  Eliminar
+                  X
                 </button>
               )}
             </>
@@ -113,10 +113,10 @@ export default function CardProducts({ user }) {
       ))}
       <div>
         {page > 1 && (
-          <button onClick={handleClickPrevious}>Pagina anterior</button>
+          <button className="Next-Page" onClick={handleClickPrevious}>Pagina anterior</button>
         )}
         {limite < productfilter.length && (
-          <button onClick={handleClickNext}>Pagina siguiente</button>
+          <button className="Previous-Page" onClick={handleClickNext}>Pagina siguiente</button>
         )}
       </div>
     </>
