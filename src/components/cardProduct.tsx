@@ -45,11 +45,7 @@ export default function CardProduct(props) {
 
       {!cartIN && (
         <div>
-          {user.id_rol == 3 && (
-            <>
-              <button>Modificar</button>
-            </>
-          )}
+          {user && <>{user.id_rol == 3 && <button>Modificar</button>}</>}
 
           <button onClick={() => addtocart(product)}>Agregar al carrito</button>
           <Link to={`/cart/${id_product}`}>
