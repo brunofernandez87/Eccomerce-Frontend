@@ -8,7 +8,7 @@ export default function Footer() {
         <a href="">Agroinsumos@gmail.com</a>
       </p>
       <p>
-        <a href="">+54291861457</a>
+        <a href="http://wa.link/3wn8uv">2923463592</a>
       </p>
       <p>Bahia Blanca Springfield 514</p>
       <button>Acerca de nosotros</button>
