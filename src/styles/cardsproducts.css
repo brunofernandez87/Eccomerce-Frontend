@@ -1,0 +1,182 @@
+.form-Product {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#search {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+#botton-search {
+  padding: 10px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Contenedor principal de la card */
+.Card-Products {
+  background-color: #f8e87b;
+  color: #000000;
+  border-radius: 20px;
+  padding: 15px 20px;
+  margin-bottom: 20px; /* Espacio entre las cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* El <a> que envuelve la mayoría de los detalles del producto */
+.link-Products {
+  display: flex;
+  text-decoration: none;
+  color: black; /*Cuando es link no lo toma como link (sino seria azul)*/
+  flex-grow: 1;
+}
+
+.link-Products:hover {
+  text-decoration: underline;
+  color: rgb(84, 82, 82);
+}
+
+.Card-Images {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  margin-right: 20px;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid #a8a8a8;
+}
+
+.Image-product {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Card-Categories {
+  font-size: 0.85em;
+  opacity: 0.7; /* Para que se vea más sutil debajo de la descripción */
+  margin-bottom: 10px;
+  width: 70%;
+}
+
+.Card-Prices {
+  margin-left: auto; /* tira el precio lo más a la derecha posible */
+  text-align: right;
+  font-size: 1.1em;
+  padding-top: 5px;
+  border-left: 1px solid #d4d4d4;
+  padding-left: 15px;
+}
+.Card-Prices b {
+  color: #000000;
+}
+
+.Delete-Button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 20%;
+  cursor: pointer;
+  background-color: #e74c3c;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  /*No deja que se apliquen estilos heredados */
+  margin-left: initial;
+  align-self: initial;
+}
+
+.Delete-Button:hover {
+  background-color: #c0392b;
+}
+
+.Next-Page,
+.Previous-Page {
+  padding: 10px 15px;
+  border: 1px solid #f8e87b;
+  background-color: #2f2e2e;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.Next-Page:hover,
+.Previous-Page:hover {
+  background-color: #f8e87b;
+  color: #000000;
+  border: 1px solid #2f2e2e;
+}
+
+.Card-Products + div {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .Card-Products {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .link-Products {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .Card-Images {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  /* Resetea la posición del precio */
+  .Card-Prices {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+    border-left: none;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+
+  .Card-Products > button {
+    align-self: center;
+    margin-left: 0;
+    width: 80%;
+  }
+}
