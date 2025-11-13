@@ -1,6 +1,6 @@
 import CardProducts from "./cardProducts";
 
-export default function Home(user) {
+export default function Home({ user }) {
   return (
     <>
       <CardProducts user={user} />
