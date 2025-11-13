@@ -1,9 +1,7 @@
-import reportMock from "../mock/reportMock.json";
-import userMock from "../mock/userMock.json";
 import image from "../assets/mockReporte.jpg";
-export default function Report() {
-  const report = reportMock[0];
-  const user = userMock.find((u) => u.id_user === report.generated_by_user);
+export default function Report({ user }) {
+  const date = new Date();
+  const username = user.name;
   // esto mas adelante lo va a realizar el back es de ejemplo
   return (
     <div>
@@ -11,10 +9,10 @@ export default function Report() {
         <img src={image} alt="Imagen de un reporte en excel" />
       </div>
       <div>
-        <p> creado en: {report.date_generated}</p>
+        <p> creado en: {date.toLocaleDateString()}</p>
       </div>
       <div>
-        <p> generado por {user?.name}</p>
+        <p> generado por {username}</p>
       </div>
     </div>
   );

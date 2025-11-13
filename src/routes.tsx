@@ -44,7 +44,7 @@ export default function Routs({ user, setuser }) {
         path="/product/:id"
         element={<CardProduct addtocart={handleAddToCart} />}
       />
-      <Route path="/report" element={<Report />} />
+      <Route path="/report" element={<Report user={user} />} />
     </Routes>
   );
 }
