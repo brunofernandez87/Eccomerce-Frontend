@@ -8,6 +8,7 @@ import Recovery from "./components/recovery";
 import Cart from "./components/cart";
 import CardProduct from "./components/cardProduct";
 import Report from "./components/report";
+import Error from "./components/error";
 import { useState } from "react";
 export default function Routs({ user, setuser }) {
   const [cartContent, setcartContent] = useState([]);
@@ -45,6 +46,7 @@ export default function Routs({ user, setuser }) {
         element={<CardProduct addtocart={handleAddToCart} />}
       />
       <Route path="/report" element={<Report user={user} />} />
+      <Route path="/error/:error" element={<Error />} />
     </Routes>
   );
 }

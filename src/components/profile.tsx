@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import userMock from "../mock/userMock.json";
 import { useEffect, useState } from "react";
 export default function Profile({ setuser }) {
@@ -19,7 +19,8 @@ export default function Profile({ setuser }) {
     // };
   }, [user, setuser]);
   if (!user) {
-    return <h1> No se inicio sesion</h1>;
+    const error = "Sesion no iniciada";
+    return <Navigate to={`/error/${error}`} replace />;
   }
   const { image, name, username, password_hash, email } = user;
   const textoOculto = "*".repeat(password_hash.length);
