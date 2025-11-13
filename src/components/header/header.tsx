@@ -13,12 +13,17 @@ export default function Header({ user }) {
         <button>preguntas frecuentes</button>
         <button>contactanos</button>
         {user ? (
-          <Link
-            to={`/profile/${user.username}/${user.password_hash}`}
-            title="Perfil"
-          >
-            <button>Perfil </button>
-          </Link>
+          <>
+            <Link
+              to={`/profile/${user.username}/${user.password_hash}`}
+              title="Perfil"
+            >
+              <button>Perfil </button>
+            </Link>
+            <Link to="/report" title="Reportes">
+              <button>Ver reportes</button>
+            </Link>
+          </>
         ) : (
           <Link to="/login" title="Iniciar Sesion">
             <button>Iniciar Sesion</button>

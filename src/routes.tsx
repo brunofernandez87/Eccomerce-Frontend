@@ -7,6 +7,7 @@ import ChangePassword from "./components/changePassword";
 import Recovery from "./components/recovery";
 import Cart from "./components/cart";
 import CardProduct from "./components/cardProduct";
+import Report from "./components/report";
 import { useState } from "react";
 export default function Routs({ setuser }) {
   const [cartContent, setcartContent] = useState([]);
@@ -43,6 +44,7 @@ export default function Routs({ setuser }) {
         path="/product/:id"
         element={<CardProduct addtocart={handleAddToCart} />}
       />
+      <Route path="/report" element={<Report />} />
     </Routes>
   );
 }
