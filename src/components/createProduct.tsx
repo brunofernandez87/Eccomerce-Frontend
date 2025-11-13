@@ -10,6 +10,8 @@ export default function CreateProduct() {
     <div>
       <h3> Crear nuevo Producto</h3>
       <form>
+        <label htmlFor="image"> Imagen</label>
+        <input type="image" name="image"></input>
         <label htmlFor="name">Nombre del producto</label>
         <input type="text" name="name" required></input>
         <label htmlFor="description"> Descripcion</label>
@@ -24,7 +26,6 @@ export default function CreateProduct() {
         <input type="number" name="price" required></input>
         <label htmlFor="stock">Stock:</label>
         <input type="number" name="stock" required></input>
-        {/* hacer mas adelante para que se pueda agregar imagen */}
         <button type="button" onClick={handleClick}>
           Crear
         </button>

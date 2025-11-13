@@ -11,7 +11,10 @@ export default function Header({ user }) {
           <button>inicio</button>
         </Link>
         <button>preguntas frecuentes</button>
-        <button>contactanos</button>
+        <Link to="/contact">
+          <button>contactanos</button>
+        </Link>
+
         {user ? (
           <>
             <Link
