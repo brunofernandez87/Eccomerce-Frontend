@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header user={user} />
-      <Routs setuser={setuser} />
+      <Routs setuser={setuser} user={user} />
       <Footer />
     </>
   );

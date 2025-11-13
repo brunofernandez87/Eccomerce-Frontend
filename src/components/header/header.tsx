@@ -20,9 +20,14 @@ export default function Header({ user }) {
             >
               <button>Perfil </button>
             </Link>
-            <Link to="/report" title="Reportes">
-              <button>Ver reportes</button>
-            </Link>
+            {user.id_rol == 3 && (
+              /* al ser admin podes ver reportes sobre tus ventas */ <Link
+                to="/report"
+                title="Reportes"
+              >
+                <button>Ver reportes</button>
+              </Link>
+            )}
           </>
         ) : (
           <Link to="/login" title="Iniciar Sesion">

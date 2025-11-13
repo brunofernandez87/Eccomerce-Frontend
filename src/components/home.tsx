@@ -1,9 +1,9 @@
 import CardProducts from "./cardProducts";
 
-export default function Home() {
+export default function Home(user) {
   return (
     <>
-      <CardProducts />
+      <CardProducts user={user} />
     </>
   );
 }

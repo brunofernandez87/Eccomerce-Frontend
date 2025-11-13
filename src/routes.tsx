@@ -9,7 +9,7 @@ import Cart from "./components/cart";
 import CardProduct from "./components/cardProduct";
 import Report from "./components/report";
 import { useState } from "react";
-export default function Routs({ setuser }) {
+export default function Routs({ user, setuser }) {
   const [cartContent, setcartContent] = useState([]);
   function handleAddToCart(product) {
     if (product) {
@@ -19,7 +19,7 @@ export default function Routs({ setuser }) {
   }
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home user={user} />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route

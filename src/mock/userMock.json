@@ -98,5 +98,15 @@
     "name": "Adriane",
     "image": "https://randomuser.me/api/portraits/women/10.jpg",
     "username": "aleopold9"
+  },
+  {
+    "id_user": 11,
+    "email": "admin@admin.com",
+    "password_hash": "admin",
+    "id_rol": 3,
+    "create": "7/12/2025",
+    "name": "ElAdmin",
+    "image": "https://randomuser.me/api/portraits/women/10.jpg",
+    "username": "admin"
   }
 ]

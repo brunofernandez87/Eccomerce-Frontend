@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import productMock from "../mock/productMock.json";
 import { useState } from "react";
 
-export default function CardProducts() {
+export default function CardProducts(user) {
   const [page, setpage] = useState(1);
   const productFilt = productMock.filter((p) => p.stock > 0);
   const [productfilter, setproductfilter] = useState(productFilt);
@@ -87,15 +87,19 @@ export default function CardProducts() {
               </p>
             </div>
           </Link>
-          <button //hacer que dependa de si es admin o no
-            onClick={() => {
-              setproductfilter(
-                productfilter.filter((p) => p.id_product !== product.id_product)
-              );
-            }}
-          >
-            Eliminar
-          </button>
+          {user.id_rol == 3 && (
+            /* al ser admin podes eliminar */ <button
+              onClick={() => {
+                setproductfilter(
+                  productfilter.filter(
+                    (p) => p.id_product !== product.id_product
+                  )
+                );
+              }}
+            >
+              Eliminar
+            </button>
+          )}
         </div>
       ))}
       <div>

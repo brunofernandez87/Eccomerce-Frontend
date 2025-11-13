@@ -35,7 +35,8 @@ export default function Profile({ setuser }) {
         <p>Username: {username}</p>
       </div>
       <div className="Password-Profile">
-        {showpassword ? <p>Password: {password_hash}</p> : <p>{textoOculto}</p>}
+        <p> password:</p>
+        {showpassword ? <p>{password_hash}</p> : <p>{textoOculto}</p>}
         <button onClick={() => setshowpassword(!showpassword)}>
           {showpassword ? <p>Ocultar contraseña</p> : <p>Mostrar contraseña</p>}
         </button>
