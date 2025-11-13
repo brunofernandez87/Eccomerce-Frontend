@@ -1,22 +1,19 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import userMock from "../mock/userMock.json";
 import { useEffect, useState } from "react";
 export default function Profile({ setuser }) {
   const [showpassword, setshowpassword] = useState(false);
+  const navigate = useNavigate();
   const { usernam, password } = useParams(); //despues cambiar usernam por una variable mas descriptiva
   const user = userMock.find(
     (u) => u.username === usernam && u.password_hash === password
   );
-
   useEffect(() => {
     if (!user) {
       setuser(null);
     } else {
       setuser(user);
     }
-    // return () => {
-    //   setisloggedIn(false);
-    // };
   }, [user, setuser]);
   if (!user) {
     const error = "Sesion no iniciada";
@@ -24,6 +21,10 @@ export default function Profile({ setuser }) {
   }
   const { image, name, username, password_hash, email } = user;
   const textoOculto = "*".repeat(password_hash.length);
+  function logout() {
+    setuser(null);
+    navigate("/", { replace: true });
+  }
   return (
     <div className="Div-Profile">
       <div className="Image-Profile">
@@ -50,6 +51,7 @@ export default function Profile({ setuser }) {
           <button>Cambiar Contraseña</button>
         </Link>
       </div>
+      <button onClick={logout}>cerrar sesion</button>
     </div>
   );
 }
