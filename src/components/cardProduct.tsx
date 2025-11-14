@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import productMock from "../mock/productMock.json";
 export default function CardProduct(props) {
   const { productID, cartIN, addtocart, user } = props;
@@ -9,11 +9,8 @@ export default function CardProduct(props) {
   } else {
     product = productMock.find((p) => p.id_product === parseInt(id));
     if (!product) {
-      return (
-        <div>
-          <p> Producto no encontrado</p>
-        </div>
-      );
+      const error = "Producto no encontrado";
+      return <Navigate to={`/error/${error}`} replace />;
     }
   }
 
