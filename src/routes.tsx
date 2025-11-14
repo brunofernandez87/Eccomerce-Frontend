@@ -13,46 +13,50 @@ import CreateProduct from "./components/createProduct";
 import AboutUS from "./components/aboutUs";
 import Contact from "./components/contact";
 import { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 export default function Routs({ user, setuser }) {
   const [cartContent, setcartContent] = useState([]);
   function handleAddToCart(product) {
     if (product) {
-      alert("producto añadido al carrito");
       setcartContent([...cartContent, product]);
+      toast.success("producto agregado al carrito");
     }
   }
   return (
-    <Routes>
-      <Route path="/" element={<Home user={user} />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route
-        path="/profile/:usernam/:password"
-        element={<Profile setuser={setuser} />}
-      />
-      <Route path="/changePassword" element={<ChangePassword />} />
-      <Route path="/recovery" element={<Recovery />} />
-      <Route
-        path="/cart"
-        element={
-          <Cart cartContent={cartContent} setcartContent={setcartContent} />
-        }
-      />
-      <Route
-        path="/cart/:id"
-        element={
-          <Cart cartContent={cartContent} setcartContent={setcartContent} />
-        }
-      />
-      <Route
-        path="/product/:id"
-        element={<CardProduct addtocart={handleAddToCart} user={user} />}
-      />
-      <Route path="/report" element={<Report user={user} />} />
-      <Route path="/error/:error" element={<Error />} />
-      <Route path="/create" element={<CreateProduct />} />
-      <Route path="/aboutUs" element={<AboutUS />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Home user={user} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/profile/:usernam/:password"
+          element={<Profile setuser={setuser} />}
+        />
+        <Route path="/changePassword" element={<ChangePassword />} />
+        <Route path="/recovery" element={<Recovery />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart cartContent={cartContent} setcartContent={setcartContent} />
+          }
+        />
+        <Route
+          path="/cart/:id"
+          element={
+            <Cart cartContent={cartContent} setcartContent={setcartContent} />
+          }
+        />
+        <Route
+          path="/product/:id"
+          element={<CardProduct addtocart={handleAddToCart} user={user} />}
+        />
+        <Route path="/report" element={<Report user={user} />} />
+        <Route path="/error/:error" element={<Error />} />
+        <Route path="/create" element={<CreateProduct />} />
+        <Route path="/aboutUs" element={<AboutUS />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Toaster position="top-center" reverseOrder={false} />
+    </>
   );
 }
