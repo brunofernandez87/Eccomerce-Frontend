@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import productMock from "../mock/productMock.json";
 import { useState } from "react";
 import "../styles/cardsproducts.css";
+import FilterCategory from "./filterCategory";
 
 export default function CardProducts({ user }) {
   const [page, setpage] = useState(1);
   const productFilt = productMock.filter((p) => p.stock > 0);
+  /*volver product filt como use state en el home? o cambiarlo como constant en el home? */
   const [productfilter, setproductfilter] = useState(productFilt);
   const maxProduct = 5;
   const limite = page * maxProduct;
@@ -16,6 +18,19 @@ export default function CardProducts({ user }) {
   }
   function handleClickPrevious() {
     setpage(page - 1);
+  }
+  function categoryFilter(event) {
+    const value = event.target.value;
+    if (value == "") {
+      setproductfilter(productFilt);
+      setpage(1);
+      return;
+    }
+    const result = productFilt.filter((p) => {
+      return p.category === value;
+    });
+    setpage(1);
+    setproductfilter(result);
   }
   function searchProduct(event) {
     event.preventDefault();
@@ -60,6 +75,7 @@ export default function CardProducts({ user }) {
         <input type="search" name="search" id="search" placeholder="buscar" />
         <button id="botton-search">🔍</button>
       </form>
+      <FilterCategory products={productFilt} categoryFilter={categoryFilter} />
       <select onChange={handleClicknew}>
         /* pasar a home */
         <option value={""}> Ordenar por</option>
@@ -95,7 +111,8 @@ export default function CardProducts({ user }) {
           {user != null && (
             <>
               {user.id_rol == 3 && (
-                /* al ser admin podes eliminar */ <button className="Delete-Button"
+                /* al ser admin podes eliminar */ <button
+                  className="Delete-Button"
                   onClick={() => {
                     setproductfilter(
                       productfilter.filter(
@@ -113,10 +130,14 @@ export default function CardProducts({ user }) {
       ))}
       <div>
         {page > 1 && (
-          <button className="Next-Page" onClick={handleClickPrevious}>Pagina anterior</button>
+          <button className="Next-Page" onClick={handleClickPrevious}>
+            Pagina anterior
+          </button>
         )}
         {limite < productfilter.length && (
-          <button className="Previous-Page" onClick={handleClickNext}>Pagina siguiente</button>
+          <button className="Previous-Page" onClick={handleClickNext}>
+            Pagina siguiente
+          </button>
         )}
       </div>
     </>
