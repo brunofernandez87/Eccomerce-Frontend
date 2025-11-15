@@ -210,6 +210,18 @@ select {
     align-self: auto;
   }
 
+  .Delete-Button {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    top: auto;
+    right: auto;
+    align-self: center;
+  }
+
   .Card-Products > button {
     align-self: center;
     margin-left: 0;
