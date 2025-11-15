@@ -16,8 +16,8 @@ export default function CardProduct(props) {
       initProduct = productMock.find(
         (input) => input.id_product === parseInt(id)
       );
-      return initProduct;
     }
+    return initProduct;
   });
   function modifiedProduct(event) {
     event.preventDefault();
