@@ -5,11 +5,11 @@ import "../styles/cardsproducts.css";
 import FilterCategory from "./filterCategory";
 import SelectProduct from "./selectProduct";
 import SearchProduct from "./searchProduct";
-export default function CardProducts({ user, productsList }) {
+export default function CardProducts({ user, productList }) {
   const [page, setpage] = useState(1);
   const productFilt = useMemo(() => {
-    return productsList.filter((p) => p.stock > 0);
-  }, [productsList]);
+    return productList.filter((p) => p.stock > 0);
+  }, [productList]);
 
   /*volver product filt como use state en el home? o cambiarlo como constant en el home? */
   const [productfilter, setproductfilter] = useState(productFilt);
