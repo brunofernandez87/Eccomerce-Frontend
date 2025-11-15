@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function CreateProduct() {
+export default function CreateProduct({ productList, setproductList }) {
   const navigate = useNavigate();
   const [name, setname] = useState("");
   const [category, setcategory] = useState("");
@@ -12,14 +12,29 @@ export default function CreateProduct() {
     category.trim() !== "" &&
     price.trim() !== "" &&
     stock !== "";
-  function handleClick() {
+  function createProduct(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const stock = formData.get("stock");
+    const price = formData.get("price");
+    const newProduct = {
+      id_product: productList.length + 1,
+      image: formData.get("image"),
+      name: formData.get("name"),
+      description: formData.get("description"),
+      category: formData.get("category"),
+      price: parseFloat(price),
+      stock: parseInt(stock),
+    };
+    const copylist = [...productList, newProduct];
+    setproductList(copylist);
     alert("¡¡¡Producto Creado!!!");
     navigate("/");
   }
   return (
     <div>
       <h3> Crear nuevo Producto</h3>
-      <form>
+      <form onSubmit={createProduct}>
         <label htmlFor="image"> Imagen</label>
         <input type="image" name="image"></input>
         <label htmlFor="name">Nombre del producto</label>
@@ -53,7 +68,7 @@ export default function CreateProduct() {
           value={stock}
           onChange={(e) => setstock(e.target.value)}
         ></input>
-        <button type="button" onClick={handleClick} disabled={!visibility}>
+        <button type="submit" disabled={!visibility}>
           Crear
         </button>
       </form>

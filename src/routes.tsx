@@ -57,7 +57,15 @@ export default function Routs({ user, setuser }) {
         />
         <Route path="/report" element={<Report user={user} />} />
         <Route path="/error/:error" element={<Error />} />
-        <Route path="/create" element={<CreateProduct />} />
+        <Route
+          path="/create"
+          element={
+            <CreateProduct
+              productList={productList}
+              setproductList={setproductList}
+            />
+          }
+        />
         <Route path="/aboutUs" element={<AboutUS />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
