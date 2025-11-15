@@ -3,7 +3,7 @@ import productMock from "../mock/productMock.json";
 import { useState } from "react";
 import "../styles/cardsproducts.css";
 import FilterCategory from "./filterCategory";
-
+import SelectProduct from "./selectProduct";
 export default function CardProducts({ user }) {
   const [page, setpage] = useState(1);
   const productFilt = productMock.filter((p) => p.stock > 0);
@@ -41,34 +41,6 @@ export default function CardProducts({ user }) {
     });
     setproductfilter(result);
   }
-  function handleClicknew(event) {
-    const value = event.target.value;
-    const copyfilter = [...productfilter];
-    switch (value) {
-      case "alfabeticamente":
-        setproductfilter(
-          copyfilter.sort((a, b) => a.name.localeCompare(b.name))
-        );
-        break;
-      case "viejo a nuevo":
-        setproductfilter(
-          copyfilter.sort((a, b) => a.id_product - b.id_product)
-        );
-        break;
-      case "mas nuevo a mas viejo":
-        setproductfilter(
-          copyfilter.sort((a, b) => b.id_product - a.id_product)
-        );
-        break;
-      case "precio mayor menor":
-        setproductfilter(copyfilter.sort((a, b) => b.price - a.price));
-        break;
-      case "precio menor mayor":
-        setproductfilter(copyfilter.sort((a, b) => a.price - b.price));
-        break;
-    }
-    setpage(1);
-  }
   return (
     <>
       <form onSubmit={searchProduct} className="form-Product">
@@ -76,15 +48,11 @@ export default function CardProducts({ user }) {
         <button id="botton-search">🔍</button>
       </form>
       <FilterCategory products={productFilt} categoryFilter={categoryFilter} />
-      <select onChange={handleClicknew}>
-        /* pasar a home */
-        <option value={""}> Ordenar por</option>
-        <option value={"precio mayor menor"}>precio de mayor a menor </option>
-        <option value={"precio menor mayor"}>precio de menor a mayor </option>
-        <option value={"viejo a nuevo"}> mas viejo a mas nuevo</option>
-        <option value={"alfabeticamente"}>alfatebeticamente </option>
-        <option value={"mas nuevo a mas viejo"}> mas nuevo a mas viejo</option>
-      </select>
+      <SelectProduct
+        productfilter={productfilter}
+        setpage={setpage}
+        setproductfilter={setproductfilter}
+      />
       {products.map((product) => (
         <div key={product.id_product} className="Card-Products">
           <Link to={`/product/${product.id_product}`} className="link-Products">
