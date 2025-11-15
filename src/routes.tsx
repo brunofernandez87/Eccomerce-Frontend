@@ -12,10 +12,12 @@ import Error from "./components/error";
 import CreateProduct from "./components/createProduct";
 import AboutUS from "./components/aboutUs";
 import Contact from "./components/contact";
+import productMock from "../src/mock/productMock.json";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 export default function Routs({ user, setuser }) {
   const [cartContent, setcartContent] = useState([]);
+  const [productList, setproductList] = useState(productMock);
   function handleAddToCart(product) {
     if (product) {
       setcartContent([...cartContent, product]);
@@ -25,7 +27,10 @@ export default function Routs({ user, setuser }) {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
+        <Route
+          path="/"
+          element={<Home user={user} productList={productList} />}
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
