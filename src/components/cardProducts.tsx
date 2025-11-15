@@ -4,6 +4,7 @@ import { useState } from "react";
 import "../styles/cardsproducts.css";
 import FilterCategory from "./filterCategory";
 import SelectProduct from "./selectProduct";
+import SearchProduct from "./searchProduct";
 export default function CardProducts({ user }) {
   const [page, setpage] = useState(1);
   const productFilt = productMock.filter((p) => p.stock > 0);
@@ -32,21 +33,13 @@ export default function CardProducts({ user }) {
     setpage(1);
     setproductfilter(result);
   }
-  function searchProduct(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const name = formData.get("search");
-    const result = productFilt.filter((p) => {
-      return p.name.toLowerCase().includes(name);
-    });
-    setproductfilter(result);
-  }
+
   return (
     <>
-      <form onSubmit={searchProduct} className="form-Product">
-        <input type="search" name="search" id="search" placeholder="buscar" />
-        <button id="botton-search">🔍</button>
-      </form>
+      <SearchProduct
+        productFilt={productFilt}
+        setproductfilter={setproductfilter}
+      />
       <FilterCategory products={productFilt} categoryFilter={categoryFilter} />
       <SelectProduct
         productfilter={productfilter}
