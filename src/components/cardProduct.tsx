@@ -2,7 +2,8 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import productMock from "../mock/productMock.json";
 import { useState } from "react";
 export default function CardProduct(props) {
-  const { productID, cartIN, addtocart, user } = props;
+  const { productID, cartIN, addtocart, user, productList, setproductList } =
+    props;
   const { id } = useParams();
   const [modified, setmodified] = useState(false);
   function onClickModified() {
@@ -31,6 +32,13 @@ export default function CardProduct(props) {
       stock: formData.get("stock"),
     };
     setProduct(updateProduct);
+    const copylist = productList.map((p) => {
+      if (p.id_product === updateProduct.id_product) {
+        return updateProduct;
+      }
+      return p;
+    });
+    setproductList(copylist);
     setmodified(!modified);
   }
   function formProduct() {
@@ -72,7 +80,7 @@ export default function CardProduct(props) {
   return (
     <div className="Card-Product">
       {modified == true ? (
-        formProduct()
+        formProduct() /* pasar a un componente separado */
       ) : (
         <>
           <div className="Product-Image">
@@ -109,8 +117,14 @@ export default function CardProduct(props) {
               <button onClick={() => addtocart(product)}>
                 Agregar al carrito
               </button>
-              <Link to={`/cart/${id_product}`}>
-                <button>Comprar ahora</button>
+              <Link to={`/cart`}>
+                <button
+                  onClick={() =>
+                    addtocart(product)
+                  } /* donde meti el cambio mostrar a ivo */
+                >
+                  Comprar ahora
+                </button>
               </Link>
             </div>
           )}

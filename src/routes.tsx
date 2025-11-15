@@ -53,7 +53,14 @@ export default function Routs({ user, setuser }) {
         />
         <Route
           path="/product/:id"
-          element={<CardProduct addtocart={handleAddToCart} user={user} />}
+          element={
+            <CardProduct
+              addtocart={handleAddToCart}
+              user={user}
+              productList={productList}
+              setproductList={setproductList}
+            />
+          }
         />
         <Route path="/report" element={<Report user={user} />} />
         <Route path="/error/:error" element={<Error />} />
