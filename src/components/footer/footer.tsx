@@ -15,15 +15,10 @@ export default function Footer() {
         </p>
 
         <div className="contact-info">
-          <a href="" className="social-link mail-link">
-            {" "}
-            <img
-              src={OutlookIcon}
-              alt="Correo Icono"
-              className="social-icon"
-            />{" "}
+          <Link to="/contact" className="social-link mail-link">
+            <img src={OutlookIcon} alt="Correo Icono" className="social-icon" />{" "}
             agroinsumos.contacto@hotmail.com
-          </a>
+          </Link>
 
           <a
             href=""
@@ -31,7 +26,6 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="social-link whatsapp-link"
           >
-            {" "}
             <img
               src={WhatsappIcon}
               alt="WhatsApp Icono"
@@ -66,12 +60,11 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="social-link instagram-link"
         >
-          {" "}
           <img
             src={InstagramIcon}
             alt="Instagram Icono"
             className="social-icon"
-          />{" "}
+          />
           @AgroInsumos.BB
         </a>
 
@@ -81,12 +74,11 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="social-link linkedin-link"
         >
-          {" "}
           <img
             src={LinkedInIcon}
             alt="LinkedIn Icono"
             className="social-icon"
-          />{" "}
+          />
           Perfil LinkedIn
         </a>
       </div>
