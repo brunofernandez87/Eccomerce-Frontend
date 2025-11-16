@@ -22,9 +22,11 @@ export default function CardProducts() {
   const limiteant = limite - maxProduct;
   const products = productfilter.slice(limiteant, limite);
   function handleClickNext() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setpage(page + 1);
   }
   function handleClickPrevious() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setpage(page - 1);
   }
   function categoryFilter(event) {
