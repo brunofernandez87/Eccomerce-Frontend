@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "../styles/cardsproducts.css";
 import FilterCategory from "./filterCategory";
 import SelectProduct from "./selectProduct";
@@ -7,10 +7,13 @@ import SearchProduct from "./searchProduct";
 import { useUser } from "../context/userContext";
 import { useProductList } from "../context/productListContext";
 export default function CardProducts() {
-  const { productList } = useProductList();
+  const { productList, setproductList } = useProductList();
   const [page, setpage] = useState(1);
   const productFilt = useMemo(() => {
     return productList.filter((p) => p.stock > 0);
+  }, [productList]);
+  useEffect(() => {
+    setproductfilter(productList);
   }, [productList]);
   const { user } = useUser();
   const [productfilter, setproductfilter] = useState(productFilt);
@@ -79,7 +82,7 @@ export default function CardProducts() {
                 /* al ser admin podes eliminar */ <button
                   className="Delete-Button"
                   onClick={() => {
-                    setproductfilter(
+                    setproductList(
                       productfilter.filter(
                         (p) => p.id_product !== product.id_product
                       )
