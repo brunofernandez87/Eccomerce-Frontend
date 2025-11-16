@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo eccomerce.jpeg";
-export default function Header({ user }) {
+import { useUser } from "../../context/userContext";
+export default function Header() {
+  const { user } = useUser();
   return (
     <>
       <div className="Logo">

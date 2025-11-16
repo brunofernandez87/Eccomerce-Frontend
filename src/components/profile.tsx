@@ -1,9 +1,11 @@
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import userMock from "../mock/userMock.json";
 import { useEffect, useState } from "react";
-export default function Profile({ setuser }) {
+import { useUser } from "../context/userContext";
+export default function Profile() {
   const [showpassword, setshowpassword] = useState(false);
   const navigate = useNavigate();
+  const { setuser } = useUser();
   const { usernam, password } = useParams(); //despues cambiar usernam por una variable mas descriptiva
   const user = userMock.find(
     (u) => u.username === usernam && u.password_hash === password

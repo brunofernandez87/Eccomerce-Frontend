@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
-import productMock from "../mock/productMock.json";
 import { useMemo, useState } from "react";
 import "../styles/cardsproducts.css";
 import FilterCategory from "./filterCategory";
 import SelectProduct from "./selectProduct";
 import SearchProduct from "./searchProduct";
-export default function CardProducts({ user, productList }) {
+import { useUser } from "../context/userContext";
+export default function CardProducts({ productList }) {
   const [page, setpage] = useState(1);
   const productFilt = useMemo(() => {
     return productList.filter((p) => p.stock > 0);
   }, [productList]);
+  const { user } = useUser();
 
   /*volver product filt como use state en el home? o cambiarlo como constant en el home? */
   const [productfilter, setproductfilter] = useState(productFilt);

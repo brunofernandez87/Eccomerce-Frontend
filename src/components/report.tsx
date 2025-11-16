@@ -1,5 +1,7 @@
 import image from "../assets/mockReporte.jpg";
-export default function Report({ user }) {
+import { useUser } from "../context/userContext";
+export default function Report() {
+  const user = useUser();
   const date = new Date();
   const username = user.name;
   // esto mas adelante lo va a realizar el back es de ejemplo
