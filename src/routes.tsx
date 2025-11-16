@@ -19,7 +19,7 @@ export default function Routs() {
   function handleAddToCart(product) {
     if (product) {
       setcartContent([...cartContent, product]);
-      toast.success("producto agregado al carrito");
+      toast.success("producto agregado al carrito", { icon: "🛒" });
     }
   }
   return (
@@ -32,7 +32,6 @@ export default function Routs() {
         <Route path="/changePassword" element={<ChangePassword />} />
         <Route path="/recovery" element={<Recovery />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/cart/:id" element={<Cart />} />
         <Route
           path="/product/:id"
           element={<CardProduct addtocart={handleAddToCart} />}

@@ -13,8 +13,6 @@ export default function CardProducts() {
     return productList.filter((p) => p.stock > 0);
   }, [productList]);
   const { user } = useUser();
-
-  /*volver product filt como use state en el home? o cambiarlo como constant en el home? */
   const [productfilter, setproductfilter] = useState(productFilt);
   const maxProduct = 5;
   const limite = page * maxProduct;
