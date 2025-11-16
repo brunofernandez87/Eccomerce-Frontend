@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo eccomerce.jpeg";
 import { useUser } from "../../context/userContext";
+import { FaShoppingCart } from "react-icons/fa";
 export default function Header() {
   const { user } = useUser();
   return (
@@ -44,7 +45,9 @@ export default function Header() {
         )}
         <div>
           <Link to="/cart" title="Carrito de compras">
-            <button>Carrito de compras</button>
+            <button>
+              Carrito de compras <FaShoppingCart />
+            </button>
           </Link>
         </div>
       </nav>

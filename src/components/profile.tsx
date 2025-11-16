@@ -2,6 +2,9 @@ import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import userMock from "../mock/userMock.json";
 import { useEffect, useState } from "react";
 import { useUser } from "../context/userContext";
+import { LuEye } from "react-icons/lu";
+import { LuEyeClosed } from "react-icons/lu";
+import { MdLogout } from "react-icons/md";
 export default function Profile() {
   const [showpassword, setshowpassword] = useState(false);
   const navigate = useNavigate();
@@ -42,7 +45,7 @@ export default function Profile() {
         <p> password:</p>
         {showpassword ? <p>{password_hash}</p> : <p>{textoOculto}</p>}
         <button onClick={() => setshowpassword(!showpassword)}>
-          {showpassword ? <p>Ocultar contraseña</p> : <p>Mostrar contraseña</p>}
+          {showpassword ? <LuEyeClosed /> : <LuEye />}
         </button>
       </div>
       <div className="Email-Profile">
@@ -53,7 +56,9 @@ export default function Profile() {
           <button>Cambiar Contraseña</button>
         </Link>
       </div>
-      <button onClick={logout}>cerrar sesion</button>
+      <button onClick={logout}>
+        <MdLogout /> cerrar sesion
+      </button>
     </div>
   );
 }

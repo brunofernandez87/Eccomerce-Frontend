@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LuEye } from "react-icons/lu";
+import { LuEyeClosed } from "react-icons/lu";
 
 export default function Login() {
   const [user, setuser] = useState("");
@@ -28,7 +30,7 @@ export default function Login() {
           onClick={() => setshowpassword(!showpassword)}
           type="button" /*cambiar por ojo*/
         >
-          {showpassword ? <p>ocultar contraseña</p> : <p>mostrar contraseña</p>}
+          {showpassword ? <LuEyeClosed /> : <LuEye />}
         </button>
         <button type="submit" id="iniciar_sesion">
           Iniciar Sesión
