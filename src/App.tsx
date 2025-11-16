@@ -3,12 +3,15 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Routs from "./routes";
 import { UserProvider } from "./context/userContext";
+import { CartProvider } from "./context/cartContext";
 
 function App() {
   return (
     <UserProvider>
       <Header />
-      <Routs />
+      <CartProvider>
+        <Routs />
+      </CartProvider>
       <Footer />
     </UserProvider>
   );

@@ -15,9 +15,10 @@ import Contact from "./components/contact";
 import productMock from "../src/mock/productMock.json";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { useCart } from "./context/cartContext";
 export default function Routs() {
-  const [cartContent, setcartContent] = useState([]);
   const [productList, setproductList] = useState(productMock);
+  const { cartContent, setcartContent } = useCart(); /* pasar a cardProduct */
   function handleAddToCart(product) {
     if (product) {
       setcartContent([...cartContent, product]);
@@ -33,18 +34,8 @@ export default function Routs() {
         <Route path="/profile/:usernam/:password" element={<Profile />} />
         <Route path="/changePassword" element={<ChangePassword />} />
         <Route path="/recovery" element={<Recovery />} />
-        <Route
-          path="/cart"
-          element={
-            <Cart cartContent={cartContent} setcartContent={setcartContent} />
-          }
-        />
-        <Route
-          path="/cart/:id"
-          element={
-            <Cart cartContent={cartContent} setcartContent={setcartContent} />
-          }
-        />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart/:id" element={<Cart />} />
         <Route
           path="/product/:id"
           element={
