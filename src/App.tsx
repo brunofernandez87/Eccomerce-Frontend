@@ -4,14 +4,16 @@ import Footer from "./components/footer/footer";
 import Routs from "./routes";
 import { UserProvider } from "./context/userContext";
 import { CartProvider } from "./context/cartContext";
-
+import { ProductListProvider } from "./context/productListContext";
 function App() {
   return (
     <UserProvider>
       <Header />
-      <CartProvider>
-        <Routs />
-      </CartProvider>
+      <ProductListProvider>
+        <CartProvider>
+          <Routs />
+        </CartProvider>
+      </ProductListProvider>
       <Footer />
     </UserProvider>
   );

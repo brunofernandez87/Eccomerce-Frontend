@@ -2,9 +2,11 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import productMock from "../mock/productMock.json";
 import { useState } from "react";
 import { useUser } from "../context/userContext";
+import { useProductList } from "../context/productListContext";
 export default function CardProduct(props) {
+  const { productList, setproductList } = useProductList();
   const { user } = useUser();
-  const { productID, cartIN, addtocart, productList, setproductList } = props;
+  const { productID, cartIN, addtocart } = props;
   const { id } = useParams();
   const [modified, setmodified] = useState(false);
   function onClickModified() {

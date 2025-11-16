@@ -5,7 +5,9 @@ import FilterCategory from "./filterCategory";
 import SelectProduct from "./selectProduct";
 import SearchProduct from "./searchProduct";
 import { useUser } from "../context/userContext";
-export default function CardProducts({ productList }) {
+import { useProductList } from "../context/productListContext";
+export default function CardProducts() {
+  const { productList } = useProductList();
   const [page, setpage] = useState(1);
   const productFilt = useMemo(() => {
     return productList.filter((p) => p.stock > 0);

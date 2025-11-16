@@ -1,9 +1,9 @@
 import CardProducts from "./cardProducts";
-export default function Home({ productList }) {
+export default function Home() {
   return (
     <>
       <div className="Card-ProductsHome">
-        <CardProducts productList={productList} />
+        <CardProducts />
       </div>
     </>
   );

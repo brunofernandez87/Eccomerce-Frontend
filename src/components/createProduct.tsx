@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useProductList } from "../context/productListContext";
 
-export default function CreateProduct({ productList, setproductList }) {
+export default function CreateProduct() {
+  const { productList, setproductList } = useProductList();
   const navigate = useNavigate();
   const [name, setname] = useState("");
   const [category, setcategory] = useState("");
