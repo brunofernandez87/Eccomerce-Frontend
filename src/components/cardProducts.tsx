@@ -80,7 +80,7 @@ export default function CardProducts() {
           </Link>
           {user != null && (
             <>
-              {user.id_rol == 3 && (
+              {user.rol == "vendedor" && (
                 /* al ser admin podes eliminar */ <button
                   className="Delete-Button"
                   onClick={() => {
