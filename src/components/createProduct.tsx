@@ -17,11 +17,12 @@ export default function CreateProduct() {
   function createProduct(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
+    const image = URL.createObjectURL(formData.get("image"));
     const stock = formData.get("stock");
     const price = formData.get("price");
     const newProduct = {
       id_product: productList.length + 1,
-      image: formData.get("image"),
+      image: image,
       name: formData.get("name"),
       description: formData.get("description"),
       category: formData.get("category"),
@@ -38,7 +39,7 @@ export default function CreateProduct() {
       <h3> Crear nuevo Producto</h3>
       <form onSubmit={createProduct}>
         <label htmlFor="image"> Imagen</label>
-        <input type="image" name="image"></input>
+        <input type="file" name="image" accept="image/"></input>
         <label htmlFor="name">Nombre del producto</label>
         <input
           type="text"

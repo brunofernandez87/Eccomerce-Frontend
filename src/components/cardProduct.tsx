@@ -1,5 +1,4 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import productMock from "../mock/productMock.json";
 import { useState } from "react";
 import { useUser } from "../context/userContext";
 import { useProductList } from "../context/productListContext";
@@ -15,9 +14,9 @@ export default function CardProduct(props) {
   const [product, setProduct] = useState(() => {
     let initProduct;
     if (productID) {
-      initProduct = productMock.find((input) => input.id_product === productID);
+      initProduct = productList.find((input) => input.id_product === productID);
     } else {
-      initProduct = productMock.find(
+      initProduct = productList.find(
         (input) => input.id_product === parseInt(id)
       );
     }

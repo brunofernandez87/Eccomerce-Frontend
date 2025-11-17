@@ -1,6 +1,7 @@
+import "../styles/aboutUs.css";
 export default function AboutUS() {
   return (
-    <div>
+    <div className="Card-aboutUs">
       <h1>🌾 Sobre Nosotros</h1>
       <p>
         En agroEcommerce, nacimos con un propósito claro: transformar la manera

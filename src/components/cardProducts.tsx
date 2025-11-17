@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "../styles/cardsproducts.css";
 import FilterCategory from "./filterCategory";
 import SelectProduct from "./selectProduct";
@@ -7,23 +7,26 @@ import SearchProduct from "./searchProduct";
 import { useUser } from "../context/userContext";
 import { useProductList } from "../context/productListContext";
 export default function CardProducts() {
-  const { productList } = useProductList();
+  const { productList, setproductList } = useProductList();
   const [page, setpage] = useState(1);
   const productFilt = useMemo(() => {
     return productList.filter((p) => p.stock > 0);
   }, [productList]);
+  useEffect(() => {
+    setproductfilter(productList);
+  }, [productList]);
   const { user } = useUser();
-
-  /*volver product filt como use state en el home? o cambiarlo como constant en el home? */
   const [productfilter, setproductfilter] = useState(productFilt);
   const maxProduct = 5;
   const limite = page * maxProduct;
   const limiteant = limite - maxProduct;
   const products = productfilter.slice(limiteant, limite);
   function handleClickNext() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setpage(page + 1);
   }
   function handleClickPrevious() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setpage(page - 1);
   }
   function categoryFilter(event) {
@@ -81,7 +84,7 @@ export default function CardProducts() {
                 /* al ser admin podes eliminar */ <button
                   className="Delete-Button"
                   onClick={() => {
-                    setproductfilter(
+                    setproductList(
                       productfilter.filter(
                         (p) => p.id_product !== product.id_product
                       )

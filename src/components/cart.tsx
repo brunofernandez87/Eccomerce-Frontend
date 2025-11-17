@@ -3,18 +3,12 @@ import mockProduct from "../mock/productMock.json";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useCart } from "../context/cartContext";
+import toast from "react-hot-toast";
 
 export default function Cart() {
   const { cartContent, setcartContent } = useCart();
-  const { id } = useParams();
-  const product = mockProduct.find((p) => p.id_product === parseInt(id));
-  useEffect(() => {
-    if (product) {
-      setcartContent([...cartContent, product]);
-    }
-  }, [product, setcartContent]);
   function handleclick() {
-    alert("compra exitosa");
+    toast.success("productos comprados");
     setcartContent([]);
   }
 

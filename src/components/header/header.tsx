@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo eccomerce.jpeg";
 import { useUser } from "../../context/userContext";
+import { FaShoppingCart } from "react-icons/fa";
+import "../../styles/header.css";
 export default function Header() {
   const { user } = useUser();
   return (
@@ -9,10 +11,9 @@ export default function Header() {
         <img src={logo} alt="Logo jpg" />
       </div>
       <nav className="Nav-header">
-        <Link to="/" title="Home">
-          <button>inicio</button>
+        <Link to="/" title="Home" className="a-header">
+          inicio
         </Link>
-        <button>preguntas frecuentes</button>
         <Link to="/contact">
           <button>contactanos</button>
         </Link>
@@ -44,7 +45,9 @@ export default function Header() {
         )}
         <div>
           <Link to="/cart" title="Carrito de compras">
-            <button>Carrito de compras</button>
+            <button>
+              <FaShoppingCart />
+            </button>
           </Link>
         </div>
       </nav>
