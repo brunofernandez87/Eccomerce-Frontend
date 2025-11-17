@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useUser } from "../context/userContext";
 import { useProductList } from "../context/productListContext";
+import "../styles/cardProduct.css";
 export default function CardProduct(props) {
   const { productList, setproductList } = useProductList();
   const { user } = useUser();
@@ -110,7 +111,7 @@ export default function CardProduct(props) {
             <div>
               {user && (
                 <>
-                  {user.id_rol == 3 && (
+                  {user.rol == "vendedor" && (
                     <button onClick={onClickModified}>Modificar</button>
                   )}
                 </>
