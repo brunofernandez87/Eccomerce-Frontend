@@ -1,0 +1,20 @@
+.Nav-header {
+  background-color: #222222;
+  color: #ffffff;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  width: 60%;
+  box-sizing: border-box;
+  margin: auto;
+}
+.a-header {
+  display: inline-block;
+  background-color: #141212;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
