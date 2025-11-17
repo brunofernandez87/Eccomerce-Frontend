@@ -1,19 +1,19 @@
 .Card-aboutUs {
   max-width: 900px;
-  background-color: #f0f0f0e5;
+  background-color: #222222;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   margin: 40px auto;
   padding: 40px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
-  color: #020202;
+  color: #d2cece;
   line-height: 1.6;
 }
 
 .Card-aboutUs h1 {
   font-size: 2.5rem;
-  color: #275c29;
+  color: #d2cece;
   margin-top: 0;
   margin-bottom: 20px;
   border-bottom: 2px solid #f0f0f0;
@@ -22,7 +22,7 @@
 
 .Card-aboutUs h2 {
   font-size: 1.8rem;
-  color: #444444;
+  color: #d2cece;
   margin-top: 30px;
   margin-bottom: 15px;
 }
@@ -49,7 +49,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: #275c29;
+  color: #ffe600;
   font-weight: bold;
   font-size: 1.2rem;
 }
