@@ -1,39 +1,61 @@
-.App {
-  background-color: #121212;
-  min-height: 100vh;
-}
+/* Contenedor principal del Header */
 .header-main {
-  background-color: #f7d83b; /* Amarillo del Header */
+  background-color: #222222;
   padding: 10px 20px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #ffea29;
-  color: #222222; /* Texto oscuro sobre fondo amarillo */
+
+  border-bottom: 2px solid #ffe100; /* Borde inferior oscuro */
+  color: #ffffff; /* Texto claro sobre fondo oscuro */
   font-family: Arial, sans-serif;
   gap: 20px;
 }
 
 /* Estilos del Logo */
+.Logo {
+  flex-shrink: 0;
+}
 .Logo img {
   height: 50px;
   width: auto;
   object-fit: contain;
 }
 
-/* Navegación (Contenedor de botones) */
+/* Navegación (Contenedor de enlaces y botones) */
 .Nav-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* Centrado horizontal */
   gap: 10px;
   align-items: center;
+  /* ✅ Ajuste para el tamaño: Limitar el ancho y centrar la navegación en sí */
+  max-width: 800px; /* Puedes ajustar este valor según el espacio deseado */
+  width: 100%; /* Ocupa el 100% del espacio permitido */
+  margin: 0 auto; /* Centra el bloque de navegación */
+  flex-grow: 1; /* Permite que la navegación intente expandirse, pero el max-width lo limita */
 }
 
-/* Estilos de todos los botones dentro del Nav-header */
+.Nav-header a:not(:has(button)) {
+  text-decoration: none;
+  background-color: #ffd700; /* ✅ Fondo amarillo para contraste */
+  color: #222222; /* ✅ Texto oscuro */
+  padding: 8px 12px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid #c2a800; /* Borde oscuro */
+  border-radius: 4px;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* 2. Estilos de todos los botones */
 .Nav-header button {
-  background-color: transparent;
-  color: #ffffff; /* Texto oscuro sobre fondo amarillo del header */
+  background-color: #ffd700; /* ✅ Fondo amarillo para contraste */
+  color: #222222; /* ✅ Texto oscuro */
   border: 1px solid #c2a800; /* Borde oscuro para contraste */
   padding: 8px 12px;
   border-radius: 4px;
@@ -42,40 +64,39 @@
   font-weight: 500;
   transition: background-color 0.2s ease, color 0.2s ease,
     border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Efecto HOVER (solo mouse over) */
-.Nav-header button:hover {
-  background-color: #ffd700; /* Amarillo más claro/intenso en hover */
+/* Estilo para el icono del carrito */
+.Nav-header button svg {
+  font-size: 1.1em;
+}
+
+/* Efecto HOVER (para enlaces de texto y botones) */
+.Nav-header button:hover,
+.Nav-header a:not(:has(button)):hover {
+  background-color: #e6c200; /* Tono de amarillo ligeramente más oscuro para hover */
   color: #222222;
-  border-color: #ffd700;
+  border-color: #e6c200;
   outline: none;
 }
 
-
-
-/* Estilo específico para el botón de "Carrito de compras" */
-/* NOTA: Adaptado para que sea igual al resto de botones (sin destacar) */
-.Nav-header > div > a > button {
-  background-color: transparent; /* Fondo transparente */
-  color: #fbfbfb;
-  font-weight: 500; /* Peso normal */
-  border: 1px solid #c2a800; /* Borde normal */
-}
-
-/* Hover específico para el botón de Carrito */
-.Nav-header > div > a > button:hover {
-  background-color: #e6c200;
+/* Efecto FOCUS (Solución para que no se quede marcado) */
+.Nav-header button:focus,
+.Nav-header a:not(:has(button)):focus {
+  /* Devuelve el elemento al estilo normal después de ser presionado */
+  background-color: #ffd700; /* Mantiene el amarillo */
   color: #222222;
-  border-color: #e6c200;
+  border-color: #c2a800;
+  outline: none;
 }
 
-/* Estilos para enlaces (Link) que contienen botones */
-.Nav-header a {
-  text-decoration: none;
-}
+/* ----------------------------------------------------------------- */
+/* MEDIA QUERY (RESPONSIVE) */
+/* ----------------------------------------------------------------- */
 
-/* Media Query para manejo de móvil/tablet */
 @media (max-width: 900px) {
   .header-main {
     flex-direction: column;
@@ -84,10 +105,14 @@
   }
   .Nav-header {
     width: 100%;
+    max-width: none; /* Elimina la limitación de ancho en móvil */
     justify-content: space-around;
     margin-top: 10px;
+    margin-left: 0;
+    margin-right: 0;
   }
-  .Nav-header button {
+  .Nav-header button,
+  .Nav-header a:not(:has(button)) {
     flex-grow: 1;
     min-width: 120px;
     text-align: center;
