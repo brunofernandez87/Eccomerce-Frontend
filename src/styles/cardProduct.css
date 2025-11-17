@@ -1,160 +1,206 @@
-/* Contenedor Principal de la Tarjeta */
-/* CardProduct.css */
+/* ================================================= */
+/* 1. ESTILOS BASE Y COMUNES */
+/* ================================================= */
 
-/* Contenedor Principal (Versión detallada de tu Card-Products) */
-.Card-Product {
-  background-color: #f8e87b; /* Tu amarillo característico */
-  color: #000000;
-  width: 100%;
-  max-width: 400px; /* Un poco más ancho para ver detalles */
+/* Contenedor principal: Estilos comunes */
+.Card-Product-View,
+.Card-Product-Edit {
   margin: 40px auto;
-  border-radius: 20px; /* Mismo radio que tus cards */
-  padding: 25px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Un poco más de sombra para destacar */
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Espacio entre elementos */
-  font-family: sans-serif; /* Asumo fuente por defecto o la que herede */
-  position: relative;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  max-width: 1000px;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+  width: 90%;
 }
 
-/* Imagen del producto (Más grande que en la lista) */
+/* Imagen del Producto (Común a ambos estados) */
 .Product-Image {
-  width: 100%;
+  width: 250px;
   height: 250px;
-  background-color: #fff; /* Fondo blanco para que la foto resalte sobre el amarillo */
-  border: 1px solid #a8a8a8; /* Mismo borde que usas en Card-Images */
-  border-radius: 10px;
+  min-width: 250px;
   overflow: hidden;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #c2c2c2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .Product-Image img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Para que se vea la foto entera */
-  padding: 10px;
+  object-fit: cover;
 }
 
-/* Título del Producto */
-.Card-Name {
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.Card-Name p,
-.Card-Name b {
-  font-size: 1.4rem;
-  margin: 0;
-  color: #000;
-}
-
-/* Descripciones y Categorías */
-.Card-Product > div p {
-  margin: 5px 0;
-  line-height: 1.4;
-  font-size: 1rem;
-}
-
-/* Precio (Estilo destacado similar a tu Card-Prices) */
-/* Seleccionamos el div que contiene el precio aprox */
-.Card-Product > div:has(p:contains("$")), /* Si el navegador soporta :has */
-.Card-Product > div p {
-  /* Fallback general */
-}
-
-/* Estilo específico para el precio para que resalte */
-.Card-Product > div:nth-last-of-type(3) p {
-  /* Ajuste visual para el precio */
-  font-size: 1.3em;
-  font-weight: bold;
-  text-align: right;
-  border-top: 1px solid #d4d4d4; /* Línea separadora */
-  padding-top: 10px;
-  margin-top: 10px;
-}
-
-/* --- BOTONES --- */
-
-/* Estilos base para todos los botones dentro de la card */
-.Card-Product button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 5px;
-  font-size: 1em;
+/* Botones de acción (Comunes) */
+.Card-Product-View .Product-Actions button,
+.Card-modified-Content form button[type="submit"] {
+  background-color: #ffd700;
+  color: #222222;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 8px;
-  border: none;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
+}
+.Card-Product-View .Product-Actions button:hover,
+.Card-modified-Content form button[type="submit"]:hover {
+  background-color: #e6c200;
 }
 
-/* Botón Principal "Comprar ahora" (Estilo Paginación: Oscuro -> Amarillo) */
-.Card-Product a button {
-  background-color: #2f2e2e;
-  color: #ffffff;
-  border: 1px solid #2f2e2e;
-}
+/* ================================================= */
+/* 2. VISTA DE LECTURA (Card-Product-View - Fondo Amarillo) */
+/* ================================================= */
 
-.Card-Product a button:hover {
-  background-color: #f8e87b; /* Se vuelve amarillo */
+.Card-Product-View {
+  background-color: #f8e87b;
   color: #000000;
-  border: 1px solid #2f2e2e; /* Borde oscuro visible */
+  display: flex; /* Imagen y Contenedor de Info en fila */
+  gap: 30px;
 }
 
-/* Botón Secundario "Agregar al carrito" (Estilo Buscador: Azul) */
-.Card-Product button:not(a button):not([type="submit"]) {
-  background-color: #3498db; /* Tu azul de búsqueda */
-  color: white;
+.Card-Product-View .Product-Info-Container {
+  flex-grow: 1;
 }
 
-.Card-Product button:not(a button):not([type="submit"]):hover {
-  background-color: #2980b9; /* Azul un poco más oscuro */
-}
-
-/* Links */
-.Card-Product a {
-  text-decoration: none;
-  width: 100%;
-}
-
-/* --- MODO EDICIÓN (FORMULARIO) --- */
-
-/* Inputs y Textarea (Estilo similar a tu #search y select) */
-.Card-Product input,
-.Card-Product textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
+/* Título */
+.Card-Product-View .Card-Name p b {
+  font-size: 2.2em;
+  font-weight: 700;
   margin-bottom: 10px;
-  box-sizing: border-box; /* Para que no se salgan del ancho */
-  background-color: #fff;
-}
-
-.Card-Product textarea {
-  resize: vertical;
-  min-height: 80px;
-  font-family: sans-serif;
-}
-
-.Card-Product label {
-  font-weight: bold;
-  font-size: 0.9em;
-  margin-bottom: 5px;
+  color: #222222;
   display: block;
 }
 
-/* Botón Guardar (Verde o Rojo, usaremos un verde estándar para diferenciar) */
-.Card-Product button[type="submit"] {
-  background-color: #2ecc71; /* Verde compatible con tu paleta flat */
-  color: white;
+/* Descripción */
+.Card-Product-View .Product-Description p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c2c2c2;
+  margin-bottom: 15px;
 }
 
-.Card-Product button[type="submit"]:hover {
-  background-color: #27ae60;
+/* Detalles (Categoría, Precio, Stock) */
+.Card-Product-View .Product-Details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de Acciones */
+.Card-Product-View .Product-Actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  border-top: 1px solid #c2c2c2;
+}
+
+/* ================================================= */
+/* 3. MODO MODIFICACIÓN (Card-Product-Edit - Fondo Oscuro) */
+/* ================================================= */
+
+.Card-Product-Edit {
+  background-color: #f8e87b;
+  color: #222222;
+
+  /* Configuración de Grid para la disposición Imagen | Campos */
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px 40px;
+}
+
+/* Contenido del Formulario */
+.Card-modified-Content {
+  grid-column: 1 / 3; /* Ocupa ambas columnas para contener el form */
+  display: contents;
+}
+
+.Card-modified-Content form {
+  display: contents; /* Permite que los hijos del form usen el grid del padre */
+}
+
+/* Imagen en el formulario (Columna 1) */
+.Card-Product-Edit .Product-Image {
+  grid-column: 1 / 2;
+  grid-row: 1 / span 10;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Estilo de los inputs (Columna 2) */
+.Card-Product-Edit form > div {
+  grid-column: 2 / 3; /* Fuerza todos los divs (campos) a la columna derecha */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Título de Producto (Input) */
+.Card-Product-Edit .Card-Name input {
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 8px;
+}
+
+/* Inputs y Textarea */
+.Card-Product-Edit form input[type="text"],
+.Card-Product-Edit form input[type="number"],
+.Card-Product-Edit form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ffdd00; /* Borde amarillo para indicar edición */
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1.1em;
+  box-sizing: border-box;
+}
+
+/* Botón "Guardar" */
+.Card-modified-Content form button[type="submit"] {
+  padding: 15px 30px;
+  font-size: 1.3em;
+  grid-column: 2 / 3;
+  justify-self: start;
+  width: auto;
+}
+
+/* ================================================= */
+/* 4. RESPONSIVE */
+/* ================================================= */
+
+@media (max-width: 768px) {
+  /* MODO LECTURA: Columna */
+  .Card-Product-View {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .Card-Product-View .Product-Details {
+    grid-template-columns: 1fr;
+  }
+
+  /* MODO EDICIÓN: Columna */
+  .Card-Product-Edit {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .Card-Product-Edit .Product-Image {
+    grid-column: 1 / 2;
+    margin: 0 auto 20px;
+    width: 80%;
+  }
+  /* Asegura que todos los elementos se apilen en la columna única en móvil */
+  .Card-modified-Content form > div,
+  .Card-modified-Content form button[type="submit"] {
+    grid-column: 1 / 2;
+    width: 100%;
+    margin: 0;
+  }
 }
