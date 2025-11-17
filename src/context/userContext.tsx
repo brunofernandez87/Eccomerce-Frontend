@@ -12,7 +12,7 @@ export function UserProvider({ children }) {
 export function useUser() {
   const context = useContext(userContext);
   if (!context) {
-    throw new Error("useUser debe ser usado dentro de un AuthProvider");
+    throw new Error("useUser debe ser usado dentro de un UserProvider");
   }
   return context;
 }

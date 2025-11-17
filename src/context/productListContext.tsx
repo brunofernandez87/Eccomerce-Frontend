@@ -12,7 +12,9 @@ export function ProductListProvider({ children }) {
 export function useProductList() {
   const context = useContext(productListContext);
   if (!context) {
-    throw new Error("useCart debe ser usado dentro de un AuthProvider");
+    throw new Error(
+      "productList debe ser usado dentro de un productListProvider"
+    );
   }
   return context;
 }

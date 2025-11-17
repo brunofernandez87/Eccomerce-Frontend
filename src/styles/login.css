@@ -1,4 +1,4 @@
-.Container-Register {
+.Container-Login {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@
   font-family: Arial, sans-serif;
 }
 
-.Container-Register form {
+.form-Login {
   background-color: #222222;
   padding: 30px;
   border-radius: 8px;
@@ -20,14 +20,14 @@
   gap: 15px;
 }
 
-.Container-Register label {
+.form-Login label {
   font-weight: bold;
   color: #ffffff;
   margin-bottom: 5px;
   display: block;
 }
 
-.input-register {
+.input-Login {
   width: 100%;
   padding: 12px;
   border: 1px solid #444444;
@@ -39,13 +39,13 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.Container-Register input:focus {
+.form-Login input:focus {
   border-color: #ffd700;
   outline: none;
   box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
-.Container-Register button[type="submit"] {
+.button-login {
   background-color: #ffd700;
   color: #222222;
   border: none;
@@ -59,7 +59,7 @@
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-.Container-Register button[type="submit"]:hover {
+.button-login:hover {
   background-color: #e6c200;
   transform: translateY(-1px);
 }
