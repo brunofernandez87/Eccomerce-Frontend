@@ -1,5 +1,6 @@
 import { useState } from "react";
 import mockUser from "../mock/userMock.json";
+import "../styles/register.css";
 export default function Register() {
   const [email, setemail] = useState("");
   const handleSubmit = (event) => {
@@ -14,10 +15,23 @@ export default function Register() {
   return (
     <div className="Container-Register">
       <form onSubmit={handleSubmit}>
+        <h2>Crear cuenta</h2>
         <label htmlFor="name">nombre</label>
-        <input type="text" name="name" required />
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="juan perez"
+          className="input-register"
+        />
         <label htmlFor="username"> username</label>
-        <input type="text" name="username" required />
+        <input
+          type="text"
+          name="username"
+          required
+          placeholder="juan perez 123"
+          className="input-register"
+        />
         <label htmlFor="email">email</label>
         <input
           type="email"
@@ -25,9 +39,17 @@ export default function Register() {
           required
           value={email}
           onChange={(e) => setemail(e.target.value)}
+          placeholder="juanperez@gmail.com"
+          className="input-register"
         />
         <label htmlFor="password_hash"> Password: </label>
-        <input type="password" name="password_hash" required />
+        <input
+          type="password"
+          name="password_hash"
+          required
+          placeholder="****"
+          className="input-register"
+        />
         <button type="submit">Registrarse</button>
       </form>
     </div>
