@@ -77,8 +77,7 @@ export default function CardProduct(props) {
     return <Navigate to={`/error/${error}`} replace />;
   }
 
-  const { id_product, image, name, description, category, price, stock } =
-    product;
+  const { image, name, description, category, price, stock } = product;
 
   return (
     <div className="Card-Product">
