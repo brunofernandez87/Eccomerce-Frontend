@@ -1,0 +1,145 @@
+/* Contenedor Principal (La Tarjeta) */
+.Div-Profile {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto; /* Centrado en la página */
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Sombra suave y elegante */
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Imagen de Perfil */
+.Image-Profile {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.Image-Profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #6366f1; /* Borde de color acento (Indigo) */
+  padding: 3px; /* Espacio entre foto y borde */
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Nombres y Textos (Username y Email) */
+.Username-Profile,
+.Email-Profile {
+  width: 100%;
+  text-align: center;
+}
+
+.Username-Profile p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.Email-Profile p {
+  font-size: 0.9rem;
+  color: #6b7280; /* Gris más suave */
+  margin: 0;
+}
+
+/* Sección de Contraseña */
+.Password-Profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f3f4f6;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
+  margin-top: 10px;
+}
+
+.Password-Profile p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Botón del Ojo (Toggle Password) */
+.Password-Profile button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #6366f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.Password-Profile button:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* Botón Cambiar Contraseña */
+.ChangePassword-Profile {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.ChangePassword-Profile a {
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+.ChangePassword-Profile button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  transition: all 0.3s ease;
+}
+
+.ChangePassword-Profile button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4);
+}
+
+/* Botón Cerrar Sesión (Logout) */
+.Div-Profile > button:last-child {
+  margin-top: 15px;
+  background-color: transparent;
+  color: #ef4444; /* Rojo suave */
+  border: 1px solid #ef4444;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.Div-Profile > button:last-child:hover {
+  background-color: #ef4444;
+   color: white;
+}
