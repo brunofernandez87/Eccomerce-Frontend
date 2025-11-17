@@ -14,7 +14,6 @@ export default function Header() {
         <Link to="/" title="Home" className="a-header">
           inicio
         </Link>
-        <button>preguntas frecuentes</button>
         <Link to="/contact">
           <button>contactanos</button>
         </Link>
