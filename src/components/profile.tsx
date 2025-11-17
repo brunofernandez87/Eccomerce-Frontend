@@ -5,6 +5,7 @@ import { useUser } from "../context/userContext";
 import { LuEye } from "react-icons/lu";
 import { LuEyeClosed } from "react-icons/lu";
 import { MdLogout } from "react-icons/md";
+import "../styles/profile.css";
 export default function Profile() {
   const [showpassword, setshowpassword] = useState(false);
   const navigate = useNavigate();
