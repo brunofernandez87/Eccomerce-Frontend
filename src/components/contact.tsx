@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../styles/contact.css";
 
 export default function Contact() {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ export default function Contact() {
     navigate("/");
   }
   return (
-    <div>
+    <div className="contact-container">
       <form>
         <label htmlFor="name">Nombre:</label>
         <input type="text" name="name" required></input>
