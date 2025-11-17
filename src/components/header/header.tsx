@@ -6,13 +6,13 @@ import "../../styles/header.css";
 export default function Header() {
   const { user } = useUser();
   return (
-    <>
+    <header className="header-main">
       <div className="Logo">
         <img src={logo} alt="Logo jpg" />
       </div>
       <nav className="Nav-header">
         <Link to="/" title="Home" className="a-header">
-          inicio
+          <button>inicio</button>
         </Link>
         <Link to="/contact">
           <button>contactanos</button>
@@ -51,6 +51,6 @@ export default function Header() {
           </Link>
         </div>
       </nav>
-    </>
+    </header>
   );
 }
