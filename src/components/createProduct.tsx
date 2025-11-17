@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProductList } from "../context/productListContext";
+import "../styles/createProduct.css";
 
 export default function CreateProduct() {
   const { productList, setproductList } = useProductList();
@@ -35,7 +36,7 @@ export default function CreateProduct() {
     navigate("/");
   }
   return (
-    <div>
+    <div className="create-product-container">
       <h3> Crear nuevo Producto</h3>
       <form onSubmit={createProduct}>
         <label htmlFor="image"> Imagen</label>
