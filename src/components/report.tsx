@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import image from "../assets/mockReporte.jpg";
 import { useUser } from "../context/userContext";
 export default function Report() {
