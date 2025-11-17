@@ -2,14 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LuEye } from "react-icons/lu";
 import { LuEyeClosed } from "react-icons/lu";
+import "../styles/login.css";
 
 export default function Login() {
   const [user, setuser] = useState("");
   const [password, setpassword] = useState("");
   const [showpassword, setshowpassword] = useState(false);
   return (
-    <div className="Div-Login">
-      <form action={`profile/${user}/${password}`}>
+    <div className="Container-Login">
+      <form action={`profile/${user}/${password}`} className="form-Login">
         <label htmlFor="username">Usuario:</label>
         <input
           type="text"
@@ -17,6 +18,7 @@ export default function Login() {
           required
           value={user}
           onChange={(e) => setuser(e.target.value)}
+          className="input_login"
         />
         <label htmlFor="password_hash"> Password: </label>
         <input
@@ -25,6 +27,7 @@ export default function Login() {
           required
           value={password}
           onChange={(e) => setpassword(e.target.value)}
+          className="input_login"
         />
         <button
           onClick={() => setshowpassword(!showpassword)}
@@ -32,16 +35,16 @@ export default function Login() {
         >
           {showpassword ? <LuEyeClosed /> : <LuEye />}
         </button>
-        <button type="submit" id="iniciar_sesion">
+        <button type="submit" id="iniciar_sesion" className="button-login">
           Iniciar Sesión
         </button>
+        <Link to="/register" title="Register">
+          <button className="button-login">Registrarse</button>
+        </Link>
+        <Link to="/recovery" title="Recuperar Contraseña">
+          <button className="button-login">Recuperar Contraseña</button>
+        </Link>
       </form>
-      <Link to="/register" title="Register">
-        <span>Registrarse</span>
-      </Link>
-      <Link to="/recovery" title="Recuperar Contraseña">
-        <span>Recuperar Contraseña</span>
-      </Link>
     </div>
   );
 }
