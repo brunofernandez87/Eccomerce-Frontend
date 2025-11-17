@@ -12,10 +12,10 @@ export default function Header() {
       </div>
       <nav className="Nav-header">
         <Link to="/" title="Home" className="a-header">
-          <button>inicio</button>
+          <button>Inicio</button>
         </Link>
         <Link to="/contact">
-          <button>contactanos</button>
+          <button>Contactanos</button>
         </Link>
 
         {user ? (

@@ -74,7 +74,7 @@ export default function CardProducts() {
             <div className="Card-Categories">{product.category}</div>
             <div className="Card-Prices">
               <p>
-                <b>Precio:{product.price}</b>
+                <b>Precio: ${product.price}</b>
               </p>
             </div>
           </Link>

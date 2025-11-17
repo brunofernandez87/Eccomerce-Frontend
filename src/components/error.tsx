@@ -6,7 +6,7 @@ export default function Error() {
     <div>
       <div>
         <p>
-          <b> lo sentimos hubo un error {error}</b>
+          <b> Error: {error}</b>
         </p>
       </div>
     </div>

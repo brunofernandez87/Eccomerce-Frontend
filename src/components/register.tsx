@@ -16,30 +16,30 @@ export default function Register() {
     <div className="Container-Register">
       <form onSubmit={handleSubmit}>
         <h2>Crear cuenta</h2>
-        <label htmlFor="name">nombre</label>
+        <label htmlFor="name">Nombre</label>
         <input
           type="text"
           name="name"
           required
-          placeholder="juan perez"
+          placeholder="Juan Perez"
           className="input-register"
         />
-        <label htmlFor="username"> username</label>
+        <label htmlFor="username"> Username</label>
         <input
           type="text"
           name="username"
           required
-          placeholder="juan perez 123"
+          placeholder="Juan123"
           className="input-register"
         />
-        <label htmlFor="email">email</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
           required
           value={email}
           onChange={(e) => setemail(e.target.value)}
-          placeholder="juanperez@gmail.com"
+          placeholder="juanperez@email.com"
           className="input-register"
         />
         <label htmlFor="password_hash"> Password: </label>
@@ -47,7 +47,7 @@ export default function Register() {
           type="password"
           name="password_hash"
           required
-          placeholder="****"
+          placeholder="************"
           className="input-register"
         />
         <button type="submit">Registrarse</button>

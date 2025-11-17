@@ -104,7 +104,7 @@ export default function CardProduct(props) {
             <p>{price}</p>
           </div>
           <div>
-            <p>stock: {stock}</p>
+            <p>Stock: {stock}</p>
           </div>
 
           {!cartIN && (

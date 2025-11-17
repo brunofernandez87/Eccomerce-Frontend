@@ -10,7 +10,7 @@ export default function SearchProduct({ productFilt, setproductfilter }) {
   }
   return (
     <form onSubmit={searchProduct} className="form-Product">
-      <input type="search" name="search" id="search" placeholder="buscar" />
+      <input type="search" name="search" id="search" placeholder="Buscar" />
       <button id="botton-search">🔍</button>
     </form>
   );

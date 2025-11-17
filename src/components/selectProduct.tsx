@@ -37,11 +37,11 @@ export default function SelectProduct({
   return (
     <select onChange={handleClicknew}>
       <option value={""}> Ordenar por</option>
-      <option value={"precio mayor menor"}>precio de mayor a menor </option>
-      <option value={"precio menor mayor"}>precio de menor a mayor </option>
-      <option value={"viejo a nuevo"}> mas viejo a mas nuevo</option>
-      <option value={"alfabeticamente"}>alfatebeticamente </option>
-      <option value={"mas nuevo a mas viejo"}> mas nuevo a mas viejo</option>
+      <option value={"precio mayor menor"}>Precio de mayor a menor </option>
+      <option value={"precio menor mayor"}>Precio de menor a mayor </option>
+      <option value={"viejo a nuevo"}> Mas viejo a mas nuevo</option>
+      <option value={"alfabeticamente"}>Alfatebeticamente </option>
+      <option value={"mas nuevo a mas viejo"}> Mas nuevo a mas viejo</option>
     </select>
   );
 }

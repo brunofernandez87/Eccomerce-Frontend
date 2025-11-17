@@ -11,10 +11,10 @@ export default function Report() {
         <img src={image} alt="Imagen de un reporte en excel" />
       </div>
       <div>
-        <p> creado en: {date.toLocaleDateString()}</p>
+        <p> Creado en: {date.toLocaleDateString()}</p>
       </div>
       <div>
-        <p> generado por {username}</p>
+        <p> Generado por {username}</p>
       </div>
     </div>
   );

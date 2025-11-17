@@ -43,7 +43,7 @@ export default function Profile() {
         <p>Username: {username}</p>
       </div>
       <div className="Password-Profile">
-        <p> password:</p>
+        <p> Password:</p>
         {showpassword ? <p>{password_hash}</p> : <p>{textoOculto}</p>}
         <button onClick={() => setshowpassword(!showpassword)}>
           {showpassword ? <LuEyeClosed /> : <LuEye />}
@@ -58,7 +58,7 @@ export default function Profile() {
         </Link>
       </div>
       <button onClick={logout}>
-        <MdLogout /> cerrar sesion
+        <MdLogout /> Cerrar sesion
       </button>
     </div>
   );
