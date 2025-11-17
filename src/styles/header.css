@@ -93,19 +93,18 @@
   outline: none;
 }
 
-/* ----------------------------------------------------------------- */
-/* MEDIA QUERY (RESPONSIVE) */
-/* ----------------------------------------------------------------- */
-
 @media (max-width: 900px) {
   .header-main {
     flex-direction: column;
-    align-items: flex-start;
+    /* ✅ CORRECCIÓN: Centra el Logo horizontalmente cuando están apilados */
+    align-items: center;
     padding: 15px 10px;
   }
+
   .Nav-header {
     width: 100%;
-    max-width: none; /* Elimina la limitación de ancho en móvil */
+    max-width: none;
+    /* Mantenemos la distribución del espacio entre los botones */
     justify-content: space-around;
     margin-top: 10px;
     margin-left: 0;
