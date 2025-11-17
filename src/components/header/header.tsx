@@ -26,7 +26,7 @@ export default function Header() {
             >
               <button>Perfil </button>
             </Link>
-            {user.id_rol == 3 && (
+            {user.rol == "vendedor" && (
               /* al ser admin podes ver reportes sobre tus ventas */
               <>
                 <Link to="/report" title="Reportes">
