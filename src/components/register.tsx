@@ -1,14 +1,28 @@
 import { useState } from "react";
 import mockUser from "../mock/userMock.json";
+import { useUserList } from "../context/userListContext";
 import "../styles/register.css";
 export default function Register() {
+  const { userList, setuserList } = useUserList();
   const [email, setemail] = useState("");
   const handleSubmit = (event) => {
-    const user = mockUser.find((u) => u.email === email);
+    const formData = new FormData();
+    const user = userList.find((u) => u.email === email);
     if (user) {
       event.preventDefault();
       alert("El email ya esta en uso");
     } else {
+      const date = new Date();
+      const newUser = {
+        id_user: userList.length + 1,
+        email: formData.get("email"),
+        password_hash: formData.get("password_hash"),
+        rol: "cliente",
+        create: date,
+        name: formData.get("name"),
+        username: formData.get("username"),
+      };
+      setuserList([...userList]);
       alert("Usuario Registrado");
     }
   };

@@ -5,13 +5,16 @@ import Routs from "./routes";
 import { UserProvider } from "./context/userContext";
 import { CartProvider } from "./context/cartContext";
 import { ProductListProvider } from "./context/productListContext";
+import { UserListProvider } from "./context/userListContext";
 function App() {
   return (
     <UserProvider>
       <Header />
       <ProductListProvider>
         <CartProvider>
-          <Routs />
+          <UserListProvider>
+            <Routs />
+          </UserListProvider>
         </CartProvider>
       </ProductListProvider>
       <Footer />

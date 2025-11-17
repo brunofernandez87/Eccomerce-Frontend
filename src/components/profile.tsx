@@ -1,17 +1,18 @@
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import userMock from "../mock/userMock.json";
 import { useEffect, useState } from "react";
 import { useUser } from "../context/userContext";
+import { useUserList } from "../context/userListContext";
 import { LuEye } from "react-icons/lu";
 import { LuEyeClosed } from "react-icons/lu";
 import { MdLogout } from "react-icons/md";
 import "../styles/profile.css";
 export default function Profile() {
+  const { userList } = useUserList();
   const [showpassword, setshowpassword] = useState(false);
   const navigate = useNavigate();
   const { setuser } = useUser();
   const { usernam, password } = useParams(); //despues cambiar usernam por una variable mas descriptiva
-  const user = userMock.find(
+  const user = userList.find(
     (u) => u.username === usernam && u.password_hash === password
   );
   useEffect(() => {
