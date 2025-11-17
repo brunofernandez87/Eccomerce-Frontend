@@ -4,7 +4,6 @@
   align-items: center;
   min-height: 80vh; /* Ocupa la mayor parte de la altura visible */
   padding: 20px;
-  background-color: #121212; /* Fondo muy oscuro, ligeramente diferente al footer */
   color: #ffffff;
   font-family: Arial, sans-serif;
 }
