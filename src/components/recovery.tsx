@@ -1,15 +1,24 @@
 import userMock from "../mock/userMock.json";
 import { useState } from "react";
+import { TbMailForward, TbMailX } from "react-icons/tb";
 import "../styles/recovery.css";
 export default function Recovery() {
   const [email, setemail] = useState("");
   const handlesubmit = (event) => {
     const user = userMock.find((u) => u.email === email);
-    if (user) {
-      alert("Se envio el correo");
+    if (user) { //HACER LO DE LA NOTIFICACION ACA!!!!!
+      alert(
+        <>
+          <TbMailForward /> Se envio el correo
+        </>
+      );
     } else {
       event.preventDefault();
-      alert("Email no encontrado");
+      alert(
+        <>
+          <TbMailX /> Email no encontrado
+        </>
+      );
     }
   };
   return (
