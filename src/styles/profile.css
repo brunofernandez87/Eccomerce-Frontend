@@ -59,12 +59,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #f3f4f6;
+  background-color: #444444;
   padding: 0.8rem 1.2rem;
   border-radius: 12px;
   width: 100%;
   box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
   margin-top: 10px;
+  color: #ffffff;
 }
 
 .Password-Profile p {
@@ -89,7 +90,7 @@
 }
 
 .Password-Profile button:hover {
-  background-color: rgba(99, 102, 241, 0.1);
+  background-color: #222222;
 }
 
 /* Botón Cambiar Contraseña */
@@ -140,5 +141,5 @@
 
 .Div-Profile > button:last-child:hover {
   background-color: #ef4444;
-   color: white;
+  color: white;
 }
