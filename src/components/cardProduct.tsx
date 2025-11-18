@@ -46,8 +46,6 @@ export default function CardProduct(props) {
   }
   function formProduct() {
     return (
-      // AÑADIDO: Contenedor específico para el formulario de modificación.
-      // Esto permite aplicar el estilo oscuro y la estructura de grid solo aquí.
       <div className="Card-modified-Content">
         <form onSubmit={modifiedProduct}>
           <div className="Product-Image">
@@ -81,11 +79,9 @@ export default function CardProduct(props) {
 
   const { image, name, description, category, price, stock } = product;
 
-  // NUEVO: Define la clase principal del componente de forma condicional
   const cardClassName = modified ? "Card-Product-Edit" : "Card-Product-View";
 
   return (
-    // CAMBIO 1: El contenedor principal ahora usa la clase dinámica para cambiar el fondo y la disposición (Amarillo/Oscuro)
     <div className={cardClassName}>
       {modified == true ? (
         formProduct()
@@ -94,8 +90,6 @@ export default function CardProduct(props) {
           <div className="Product-Image">
             <img src={image} alt={name} />
           </div>
-
-          {/* CAMBIO 2: Agrupamos la información de la derecha en un contenedor para facilitar el diseño flex/grid */}
           <div className="Product-Info-Container">
             <div className="Card-Name">
               <p>
@@ -105,8 +99,6 @@ export default function CardProduct(props) {
             <div className="Product-Description">
               <p>{description}</p>
             </div>
-
-            {/* CAMBIO 3: Agrupamos los detalles pequeños en un contenedor para aplicarles una rejilla (grid) en el CSS */}
             <div className="Product-Details">
               <div>
                 <p>Categoría: {category}</p>
@@ -130,11 +122,11 @@ export default function CardProduct(props) {
                 )}
 
                 <button onClick={() => addtocart(product)}>
-                  Agregar al carrito
+                  Agregar al Carrito
                 </button>
                 <Link to={`/cart`}>
                   <button onClick={() => addtocart(product)}>
-                    Comprar ahora
+                    Comprar Ahora
                   </button>
                 </Link>
               </div>

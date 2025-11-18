@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 export default function Cart() {
   const { cartContent, setcartContent } = useCart();
   function handleclick() {
-    toast.success("productos comprados");
+    toast.success("Productos Comprados");
     setcartContent([]);
   }
 
