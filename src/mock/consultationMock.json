@@ -1,0 +1,72 @@
+[
+  {
+    "id_consultation": 1,
+    "id_user": 5,
+    "id_product": 2,
+    "message": "vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis",
+    "date_consultation": "6/19/2025"
+  },
+  {
+    "id_consultation": 2,
+    "id_user": 1,
+    "id_product": 10,
+    "message": "nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus",
+    "date_consultation": "3/23/2025"
+  },
+  {
+    "id_consultation": 3,
+    "id_user": 6,
+    "id_product": 10,
+    "message": "in felis donec semper sapien a libero nam dui proin",
+    "date_consultation": "3/15/2025"
+  },
+  {
+    "id_consultation": 4,
+    "id_user": 4,
+    "id_product": 2,
+    "message": "lorem quisque ut erat curabitur gravida nisi at nibh in hac",
+    "date_consultation": "3/19/2025"
+  },
+  {
+    "id_consultation": 5,
+    "id_user": 9,
+    "id_product": 9,
+    "message": "in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt",
+    "date_consultation": "10/17/2025"
+  },
+  {
+    "id_consultation": 6,
+    "id_user": 8,
+    "id_product": 7,
+    "message": "hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante",
+    "date_consultation": "10/25/2024"
+  },
+  {
+    "id_consultation": 7,
+    "id_user": 9,
+    "id_product": 10,
+    "message": "turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in",
+    "date_consultation": "3/9/2025"
+  },
+  {
+    "id_consultation": 8,
+    "id_user": 6,
+    "id_product": 5,
+    "message": "pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in",
+    "date_consultation": "8/4/2025"
+  },
+  {
+    "id_consultation": 9,
+    "id_user": 5,
+    "id_product": 2,
+    "message": "velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat",
+    "date_consultation": "3/20/2025"
+  },
+  {
+    "id_consultation": 10,
+    "id_user": 7,
+    "id_product": 3,
+    "message": "massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien",
+    "date_consultation": "5/14/2025"
+  }
+]
