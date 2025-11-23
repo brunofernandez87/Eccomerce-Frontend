@@ -77,9 +77,9 @@ npm run preview
 
 ✔️ Comunicación con API externa
 
-✔️ Checkout (si está implementado)
+✔️ Checkout
 
-✔️ Login / registro (según backend disponible)
+✔️ Login / registro
 
 ### 📦 Scripts del Proyecto
 
