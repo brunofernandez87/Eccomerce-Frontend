@@ -75,7 +75,7 @@ npm run preview
 
 ✔️ Diseño 100% responsive
 
-✔️ Comunicación con API externa
+⏳ Comunicación con API externa (en proceso)
 
 ✔️ Checkout
 
