@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LuEye } from "react-icons/lu";
 import { LuEyeClosed } from "react-icons/lu";
 import "../styles/login.css";
@@ -8,9 +8,14 @@ export default function Login() {
   const [user, setuser] = useState("");
   const [password, setpassword] = useState("");
   const [showpassword, setshowpassword] = useState(false);
+  const navigate = useNavigate();
+  function handleLogin(e: React.FormEvent) {
+    e.preventDefault();
+    navigate(`/profile/${user}/${password}`);
+  }
   return (
     <div className="Container-Login">
-      <form action={`profile/${user}/${password}`} className="form-Login">
+      <form onSubmit={handleLogin} className="form-Login">
         <label htmlFor="username">Usuario:</label>
         <input
           type="text"
