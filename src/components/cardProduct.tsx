@@ -52,20 +52,24 @@ export default function CardProduct(props) {
             <img src={image} alt={name} />
           </div>
           <div className="Card-Name">
-            <input type="text" name="name" defaultValue={name} />
+            <label>Nombre:</label>
+            <input type="text" name="name" defaultValue={name} placeholder="Nombre"/>
           </div>
           <div>
-            <textarea name="description" defaultValue={description} />
+            <label>Descripción:</label>
+            <textarea name="description" defaultValue={description} placeholder="Descripción" />
           </div>
           <div>
-            <input type="text" name="category" defaultValue={category} />
+            <label>Categoría:</label>
+            <input type="text" name="category" defaultValue={category} placeholder="Categoría" />
           </div>
           <div>
-            <input type="number" name="price" defaultValue={price} />
+            <label>Precio:</label>
+            <input type="number" name="price" defaultValue={price} placeholder="Precio" />
           </div>
           <div>
             <label>Stock:</label>
-            <input type="number" name="stock" defaultValue={stock} />
+            <input type="number" name="stock" defaultValue={stock} placeholder="Stock" />
           </div>
           <button type="submit">Guardar</button>
         </form>

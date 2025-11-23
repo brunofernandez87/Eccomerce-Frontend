@@ -1,4 +1,4 @@
-/* Contenedor principal: Estilos comunes */
+/* Contenedor principal */
 .Card-Product-View,
 .Card-Product-Edit {
   margin: 40px auto;
@@ -27,7 +27,7 @@
   object-fit: cover;
 }
 
-/* Botones de acción (Comunes) */
+/* Botones*/
 .Card-Product-View .Product-Actions button,
 .Card-modified-Content form button[type="submit"] {
   background-color: #ffd700;
@@ -140,6 +140,7 @@
 .Card-Product-Edit form input[type="text"],
 .Card-Product-Edit form input[type="number"],
 .Card-Product-Edit form textarea {
+  resize: vertical;
   width: 100%;
   padding: 12px;
   border: 1px solid #ffdd00; /* Borde amarillo para indicar edición */
