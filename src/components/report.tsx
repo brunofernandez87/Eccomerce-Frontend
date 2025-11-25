@@ -57,6 +57,7 @@ export default function Report() {
                 image={image}
                 date={r.date_generated}
                 username={r.generated_by_user}
+                print={false}
               />
             </Link>
           </div>
@@ -66,6 +67,7 @@ export default function Report() {
           image={image}
           date={report?.date_generated}
           username={report?.generated_by_user}
+          print={true}
         />
       )}
       {!report && (
