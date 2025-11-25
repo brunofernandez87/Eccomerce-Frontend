@@ -12,7 +12,8 @@ import Error from "./components/error";
 import CreateProduct from "./components/createProduct";
 import AboutUS from "./components/aboutUs";
 import Contact from "./components/contact";
-import ReportsCard from "./components/reportsCard";
+import OrderDetail from "./components/orderDetail";
+import Order from "./components/order";
 import { Toaster, toast } from "react-hot-toast";
 import { useCart } from "./context/cartContext";
 export default function Routs() {
@@ -37,6 +38,8 @@ export default function Routs() {
           path="/product/:id"
           element={<CardProduct addtocart={handleAddToCart} />}
         />
+        <Route path="/order" element={<Order />} />
+        <Route path="/orderDetail/:id" element={<OrderDetail />} />
         <Route path="/report/:id" element={<Report />} />
         <Route path="/report" element={<Report />} />
         <Route path="/error/:error" element={<Error />} />
