@@ -32,3 +32,4 @@ export default function Order() {
     </div>
   );
 }
+//si es admin que le aparezcan todas las ordenes de todos los usuarios, que pueda filtrar por usuario, por estado o por fecha
