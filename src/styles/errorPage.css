@@ -1,0 +1,67 @@
+/* ----------------------------------------------------------------- */
+/* ESTILOS GLOBALES DE LA PÁGINA DE ERROR */
+/* ----------------------------------------------------------------- */
+
+.error-container {
+  /* Fondo oscuro consistente */
+  /* background-color: #121212; */
+
+  /* Centra el contenido en el medio de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Ocupa el espacio visible (ajusta este valor si tu header/footer son muy altos) */
+  min-height: calc(100vh - 120px);
+
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.error-content-wrapper {
+  max-width: 800px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; 
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7); /* Sombra */
+  border: 3px solid #ffd700; /* Borde amarillo */
+}
+
+.dynamic-error-message {
+  color: #ffd700; 
+  background-color: #222222;
+
+  padding: 15px 30px;
+  margin-top: 30px; /* Espacio para separarlo de la imagen */
+  margin-bottom: 20px;
+
+  border-radius: 6px;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); /* Sombra */
+}
+
+@media (max-width: 768px) {
+  .error-container {
+    padding: 10px;
+  }
+  .error-content-wrapper {
+    max-width: 95%;
+  }
+  .dynamic-error-message {
+    font-size: 1.2em;
+    padding: 10px 20px;
+  }
+}
