@@ -3,16 +3,19 @@ import { createContext, useContext, useState } from "react";
 const cartContext = createContext(null);
 
 export function CartProvider({ children }) {
-  const [cartContent, setcartContent] = useState([]);
+  const [cartContent, setcartContent] = useState([]); // Función para agregar un producto al carrito o incrementar su cantidad.
 
   const addOrUpdateItem = (productToAdd) => {
+    // Busca si el producto ya existe en el carrito por su ID.
     const existingItemIndex = cartContent.findIndex(
       (item) => item.id_product === productToAdd.id_product
     );
 
     if (existingItemIndex > -1) {
+      // Si existe: Incrementa la cantidad de ese ítem.
       const newCart = cartContent.map((item, index) => {
         if (index === existingItemIndex) {
+          // Incrementa la cantidad
           const currentQuantity = item.quantity || 1;
           return { ...item, quantity: currentQuantity + 1 };
         }
@@ -25,19 +28,18 @@ export function CartProvider({ children }) {
     }
   };
 
-  //modifica la cantidad (+ / -)
   const updateQuantity = (productId, newQuantity) => {
     if (newQuantity <= 0) {
-      // Eliminar el producto
+      // Si la cantidad es cero o menos: Eliminar el producto
       setcartContent(
         cartContent.filter((item) => item.id_product !== productId)
       );
     } else {
-      // Actualizar la cantidad
+      // Si la cantidad es válida: Actualizar la cantidad
       setcartContent(
         cartContent.map((item) =>
           item.id_product === productId
-            ? { ...item, quantity: newQuantity }
+            ? { ...item, quantity: newQuantity } // Sobrescribe la cantidad
             : item
         )
       );
@@ -48,9 +50,9 @@ export function CartProvider({ children }) {
     <cartContext.Provider
       value={{
         cartContent,
-        setcartContent,
-        addOrUpdateItem, // Usar esta función para AGREGAR productos
-        updateQuantity, // Usar esta función para los botones +/-
+        setcartContent, // Para vaciar el carrito completamente
+        addOrUpdateItem, // Función principal para añadir/incrementar
+        updateQuantity, // Función para +/- botones
       }}
     >
       {children}
@@ -58,9 +60,11 @@ export function CartProvider({ children }) {
   );
 }
 
+// Para consumir el contextoen otros componentes
 export function useCart() {
   const context = useContext(cartContext);
   if (!context) {
+    // Lanza un error si el hook no se usa dentro del proveedor
     throw new Error("useCart debe ser usado dentro de un useCartProvider");
   }
   return context;
