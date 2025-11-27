@@ -5,9 +5,10 @@ import createOrder from "./order/createOrder";
 import "../styles/cart.css";
 import { useUser } from "../context/userContext";
 import { useOrderList } from "../context/orderListContext";
-
+import { useOrderDetailList } from "../context/orderDetailListContext";
 const getProductImage = (product) => product.image;
 export default function Cart() {
+  const { orderDetailList, setorderDetailList } = useOrderDetailList();
   const { user } = useUser();
   const { allOrders, setorderList } = useOrderList();
   const { cartContent, setcartContent, updateQuantity } = useCart(); // Calcula el total a pagar
@@ -18,18 +19,27 @@ export default function Cart() {
       0
     );
   }, [cartContent]);
-
+  const isCartEmpty = cartContent.length === 0;
   function handleBuy() {
-    const order = createOrder({ allOrders, setorderList, user, total });
-    if (order) {
+    const orderID = createOrder({ allOrders, setorderList, user, total });
+    if (orderID) {
+      const neworderDetail = cartContent.map((prod, index) => {
+        const id = cartContent.length + index + 1;
+        return {
+          id_detail: id,
+          id_order: orderID,
+          id_product: prod.id_product,
+          amount: prod.quantity || 1,
+          unit_price: prod.price,
+        };
+      });
+      setorderDetailList((prevList) => [...prevList, ...neworderDetail]);
       toast.success("Productos Comprados"); // Muestra una notificación
       setcartContent([]); // Vacía el carrito despues de la compra
     } else {
       toast.error("No se pudo procesar la compra");
     }
   }
-
-  const isCartEmpty = cartContent.length === 0;
 
   return (
     <div className="cart-page-container">

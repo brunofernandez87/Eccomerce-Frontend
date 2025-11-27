@@ -1,19 +1,27 @@
-import { useParams } from "react-router-dom";
-import orderDetailMock from "../../mock/orderDetailMock.json";
-import productoMock from "../../mock/productMock.json";
+import { Navigate, useParams } from "react-router-dom";
+import { useOrderDetailList } from "../../context/orderDetailListContext";
+import { useProductList } from "../../context/productListContext";
 export default function OrderDetail() {
+  const { productList } = useProductList();
   const { id } = useParams();
-  const detail = orderDetailMock.filter((d) => d.id_order == parseInt(id));
-  const product = productoMock.find((p) => p.id_product == detail?.id_product);
+  const { orderDetailList } = useOrderDetailList();
+  const detail = orderDetailList.filter((d) => d.id_order == parseInt(id));
+  if (!detail || detail.length == 0) {
+    const error = "Detalle de orden no encontrado";
+    return <Navigate to={`/error/${error}`} replace />;
+  }
   return (
     <div>
-      {detail.map((d) => (
-        <div>
-          <p> producto:{product?.name}</p>
-          <p>monto:{d?.amount}</p>
-          <p>precio unitario:{d?.unit_price}</p>
-        </div>
-      ))}
+      {detail.map((d) => {
+        const product = productList.find((p) => p.id_product == d.id_product);
+        return (
+          <div key={d.id_detail}>
+            <p> producto:{product?.name || "Desconocido"}</p>
+            <p>monto:{d?.amount}</p>
+            <p>precio unitario:{d?.unit_price}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }
