@@ -1,10 +1,15 @@
 import { useMemo } from "react";
 import { useCart } from "../context/cartContext";
 import { toast } from "react-hot-toast";
+import createOrder from "./order/createOrder";
 import "../styles/cart.css";
+import { useUser } from "../context/userContext";
+import { useOrderList } from "../context/orderListContext";
 
 const getProductImage = (product) => product.image;
 export default function Cart() {
+  const { user } = useUser();
+  const { allOrders, setorderList } = useOrderList();
   const { cartContent, setcartContent, updateQuantity } = useCart(); // Calcula el total a pagar
   const total = useMemo(() => {
     return cartContent.reduce(
@@ -15,8 +20,13 @@ export default function Cart() {
   }, [cartContent]);
 
   function handleBuy() {
-    toast.success("Productos Comprados"); // Muestra una notificación
-    setcartContent([]); // Vacía el carrito despues de la compra
+    const order = createOrder({ allOrders, setorderList, user, total });
+    if (order) {
+      toast.success("Productos Comprados"); // Muestra una notificación
+      setcartContent([]); // Vacía el carrito despues de la compra
+    } else {
+      toast.error("No se pudo procesar la compra");
+    }
   }
 
   const isCartEmpty = cartContent.length === 0;
