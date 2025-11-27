@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
 import { useCart } from "../context/cartContext";
 import { toast } from "react-hot-toast";
 import "../styles/cart.css";

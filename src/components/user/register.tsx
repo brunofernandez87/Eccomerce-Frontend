@@ -1,7 +1,6 @@
 import { useState } from "react";
-import mockUser from "../mock/userMock.json";
-import { useUserList } from "../context/userListContext";
-import "../styles/register.css";
+import { useUserList } from "../../context/userListContext";
+import "../../styles/register.css";
 export default function Register() {
   const { userList, setuserList } = useUserList();
   const [email, setemail] = useState("");

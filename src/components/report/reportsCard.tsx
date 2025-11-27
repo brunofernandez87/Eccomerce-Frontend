@@ -1,4 +1,7 @@
-export default function ReportsCard({ image, date, username }) {
+export default function ReportsCard({ image, date, username, print }) {
+  function clickPrint() {
+    alert("Imprimiendoooo");
+  }
   return (
     <div>
       <div>
@@ -10,6 +13,11 @@ export default function ReportsCard({ image, date, username }) {
       <div>
         <p> Generado por {username}</p>
       </div>
+      {print && (
+        <div>
+          <button onClick={clickPrint}> Imprimir</button>
+        </div>
+      )}
     </div>
   );
 }

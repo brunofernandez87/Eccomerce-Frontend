@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import orderDetailMock from "../mock/orderDetailMock.json";
-import productoMock from "../mock/productMock.json";
+import orderDetailMock from "../../mock/orderDetailMock.json";
+import productoMock from "../../mock/productMock.json";
 export default function OrderDetail() {
   const { id } = useParams();
   const detail = orderDetailMock.filter((d) => d.id_order == parseInt(id));

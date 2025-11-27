@@ -1,8 +1,8 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import { useUser } from "../context/userContext";
-import { useProductList } from "../context/productListContext";
-import "../styles/cardProduct.css";
+import { useUser } from "../../context/userContext";
+import { useProductList } from "../../context/productListContext";
+import "../../styles/cardProduct.css";
 export default function CardProduct(props) {
   const { productList, setproductList } = useProductList();
   const { user } = useUser();
@@ -53,23 +53,47 @@ export default function CardProduct(props) {
           </div>
           <div className="Card-Name">
             <label>Nombre:</label>
-            <input type="text" name="name" defaultValue={name} placeholder="Nombre"/>
+            <input
+              type="text"
+              name="name"
+              defaultValue={name}
+              placeholder="Nombre"
+            />
           </div>
           <div>
             <label>Descripción:</label>
-            <textarea name="description" defaultValue={description} placeholder="Descripción" />
+            <textarea
+              name="description"
+              defaultValue={description}
+              placeholder="Descripción"
+            />
           </div>
           <div>
             <label>Categoría:</label>
-            <input type="text" name="category" defaultValue={category} placeholder="Categoría" />
+            <input
+              type="text"
+              name="category"
+              defaultValue={category}
+              placeholder="Categoría"
+            />
           </div>
           <div>
             <label>Precio:</label>
-            <input type="number" name="price" defaultValue={price} placeholder="Precio" />
+            <input
+              type="number"
+              name="price"
+              defaultValue={price}
+              placeholder="Precio"
+            />
           </div>
           <div>
             <label>Stock:</label>
-            <input type="number" name="stock" defaultValue={stock} placeholder="Stock" />
+            <input
+              type="number"
+              name="stock"
+              defaultValue={stock}
+              placeholder="Stock"
+            />
           </div>
           <button type="submit">Guardar</button>
         </form>

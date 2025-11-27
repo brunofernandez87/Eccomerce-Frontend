@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useProductList } from "../context/productListContext";
-import "../styles/createProduct.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useProductList } from "../../context/productListContext";
+import { useUser } from "../../context/userContext";
+import "../../styles/createProduct.css";
 
 export default function CreateProduct() {
+  const { user } = useUser();
   const { productList, setproductList } = useProductList();
   const navigate = useNavigate();
   const [name, setname] = useState("");
@@ -34,6 +36,10 @@ export default function CreateProduct() {
     setproductList(copylist);
     alert("¡¡¡Producto Creado!!!");
     navigate("/");
+  }
+  if (user == null || user.rol !== "admin") {
+    const error = "No tenes autoraziacion para ver la pagina";
+    return <Navigate to={`/error/${error}`} replace />;
   }
   return (
     <div className="create-product-container">

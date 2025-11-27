@@ -1,9 +1,9 @@
 import { useState } from "react";
-import image from "../assets/mockReporte.jpg";
-import reportMock from "../mock/reportMock.json";
+import image from "../../assets/mockReporte.jpg";
+import reportMock from "../../mock/reportMock.json";
 import ReportsCard from "./reportsCard";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useUser } from "../context/userContext";
+import { useUser } from "../../context/userContext";
 export default function Report() {
   const { id } = useParams();
   const date = new Date();

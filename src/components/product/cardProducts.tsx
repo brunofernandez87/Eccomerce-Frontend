@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import "../styles/cardsproducts.css";
-import FilterCategory from "./filterCategory";
+import "../../styles/cardsproducts.css";
+import FilterCategory from "../filterCategory";
 import SelectProduct from "./selectProduct";
 import SearchProduct from "./searchProduct";
-import { useUser } from "../context/userContext";
-import { useProductList } from "../context/productListContext";
+import { useUser } from "../../context/userContext";
+import { useProductList } from "../../context/productListContext";
 export default function CardProducts() {
   const { productList, setproductList } = useProductList();
   const [page, setpage] = useState(1);
