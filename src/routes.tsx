@@ -8,7 +8,7 @@ import Recovery from "./components/recovery";
 import Cart from "./components/cart";
 import CardProduct from "./components/cardProduct";
 import Report from "./components/report";
-import Error from "./components/error";
+import Error from "./components/errorPage";
 import CreateProduct from "./components/createProduct";
 import AboutUS from "./components/aboutUs";
 import Contact from "./components/contact";
