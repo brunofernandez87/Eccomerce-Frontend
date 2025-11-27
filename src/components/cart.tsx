@@ -21,6 +21,10 @@ export default function Cart() {
   }, [cartContent]);
   const isCartEmpty = cartContent.length === 0;
   function handleBuy() {
+    if (!user) {
+      toast.error("Requiere iniciar sesion para comprar");
+      return;
+    }
     const orderID = createOrder({ allOrders, setorderList, user, total });
     if (orderID) {
       const neworderDetail = cartContent.map((prod, index) => {
