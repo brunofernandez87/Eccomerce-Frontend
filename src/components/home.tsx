@@ -1,4 +1,4 @@
-import CardProducts from "./cardProducts";
+import CardProducts from "./product/cardProducts";
 export default function Home() {
   return (
     <>

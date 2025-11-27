@@ -1,19 +1,22 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/home";
-import Login from "./components/login";
-import Register from "./components/register";
-import Profile from "./components/profile";
-import ChangePassword from "./components/changePassword";
-import Recovery from "./components/recovery";
+import Login from "./components/user/login";
+import Register from "./components/user/register";
+import Profile from "./components/user/profile";
+import ChangePassword from "./components/user/changePassword";
+import Recovery from "./components/user/recovery";
 import Cart from "./components/cart";
-import CardProduct from "./components/cardProduct";
-import Report from "./components/report";
-import Error from "./components/error";
-import CreateProduct from "./components/createProduct";
+import CardProduct from "./components/product/cardProduct";
+import Report from "./components/report/report";
+import Error from "./components/errorPage";
+import CreateProduct from "./components/product/createProduct";
 import AboutUS from "./components/aboutUs";
 import Contact from "./components/contact";
+import OrderDetail from "./components/order/orderDetail";
+import Order from "./components/order/order";
 import { Toaster, toast } from "react-hot-toast";
 import { useCart } from "./context/cartContext";
+import AdminGuard from "./components/adminGuard";
 export default function Routs() {
   const { cartContent, setcartContent } = useCart(); /* pasar a cardProduct */
   function handleAddToCart(product) {
@@ -36,11 +39,16 @@ export default function Routs() {
           path="/product/:id"
           element={<CardProduct addtocart={handleAddToCart} />}
         />
-        <Route path="/report" element={<Report />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/orderDetail/:id" element={<OrderDetail />} />
         <Route path="/error/:error" element={<Error />} />
-        <Route path="/create" element={<CreateProduct />} />
         <Route path="/aboutUs" element={<AboutUS />} />
         <Route path="/contact" element={<Contact />} />
+        <Route element={<AdminGuard />} /*Rutas protegidas */>
+          <Route path="/report" element={<Report />} />
+          <Route path="/report/:id" element={<Report />} />
+          <Route path="/create" element={<CreateProduct />} />
+        </Route>
       </Routes>
       <Toaster position="top-center" reverseOrder={false} />
     </>
