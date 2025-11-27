@@ -37,10 +37,6 @@ export default function CreateProduct() {
     alert("¡¡¡Producto Creado!!!");
     navigate("/");
   }
-  if (user == null || user.rol !== "admin") {
-    const error = "No tenes autoraziacion para ver la pagina";
-    return <Navigate to={`/error/${error}`} replace />;
-  }
   return (
     <div className="create-product-container">
       <h3> Crear nuevo Producto</h3>
