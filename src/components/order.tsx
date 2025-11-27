@@ -1,10 +1,24 @@
 import { Link } from "react-router-dom";
 import { useOrderList } from "../context/orderListContext";
+import { useState } from "react";
 export default function Order() {
   const { orderList, setorderList } = useOrderList();
+  const [page, setpage] = useState(1);
+  const maxItem = 5;
+  const limit = page * maxItem;
+  const limitAnt = limit - maxItem;
+  const orderFilter = orderList.slice(limitAnt, limit);
+  function handleClickNext() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setpage(page + 1);
+  }
+  function handleClickPrevious() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setpage(page - 1);
+  }
   return (
     <div>
-      {orderList.map((o) => (
+      {orderFilter.map((o) => (
         <div key={o.id_order}>
           <Link to={`/orderDetail/${o?.id_order}`}>
             <p>fecha:{o?.date}</p>
@@ -26,6 +40,18 @@ export default function Order() {
           )}
         </div>
       ))}
+      <div>
+        {page > 1 && (
+          <button className="Next-Page" onClick={handleClickPrevious}>
+            Pagina anterior
+          </button>
+        )}
+        {limit < orderList.length && (
+          <button className="Previous-Page" onClick={handleClickNext}>
+            Pagina siguiente
+          </button>
+        )}
+      </div>
     </div>
   );
 }
