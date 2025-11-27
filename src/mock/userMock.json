@@ -114,9 +114,9 @@
     "email": "vendedor@vendedor.com",
     "password_hash": "vendedor",
     "rol": "vendedor",
-    "create": "7/12/2025",
+    "create": "2/12/2025",
     "name": "ElVentas",
-    "image": "https://randomuser.me/api/portraits/women/10.jpg",
+    "image": "https://randomuser.me/api/portraits/men/10.jpg",
     "username": "vendedor"
   }
 ]
