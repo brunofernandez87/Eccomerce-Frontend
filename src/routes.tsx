@@ -22,7 +22,7 @@ export default function Routs() {
   function handleAddToCart(product) {
     if (product) {
       addOrUpdateItem(product);
-      toast.success("producto agregado al carrito", { icon: "🛒" });
+      toast.success("Producto agregado al carrito", { icon: "🛒" });
     }
   }
   return (
