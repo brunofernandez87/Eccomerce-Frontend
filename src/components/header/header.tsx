@@ -26,11 +26,16 @@ export default function Header() {
             >
               <button>Perfil </button>
             </Link>
-            <Link to={"/order"} title="Ordenes">
-              <button> Ordenes</button>
-            </Link>
+            {user.rol === "vendedor" ? (
+              <Link to="/order" title="Ordenes">
+                <button> Pedidos </button>
+              </Link>
+            ) : (
+              <Link to={"/order"} title="Ordenes">
+                <button> Mis Pedidos </button>
+              </Link>
+            )}
             {user.rol == "vendedor" && (
-              /* al ser admin podes ver reportes sobre tus ventas */
               <>
                 <Link to="/report" title="Reportes">
                   <button>Ver reportes</button>
