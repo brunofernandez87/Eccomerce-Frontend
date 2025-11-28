@@ -23,7 +23,7 @@ export default function Order() {
           <Link to={`/orderDetail/${o?.id_order}`}>
             <p>fecha:{o?.date}</p>
             <p>estado:{o?.state}</p>
-
+            <p> usuario: {o?.id_user}</p>
             <p>total:{o?.total}</p>
           </Link>
           {(o.state == "en preparacion" || o.state == "en camino") && (
