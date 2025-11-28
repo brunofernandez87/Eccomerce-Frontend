@@ -3,19 +3,20 @@ import "../../styles/user/changePassword.css";
 import { useUser } from "../../context/userContext";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useUserList } from "../../context/userListContext";
-
-//Falta Validacion de que las contraseñas nuevas sean iguales y distintas a la actual y que la actual sea correcta
-
 export default function ChangePassword() {
   const { user, setuser } = useUser();
   const { userList, setuserList } = useUserList();
   const navigate = useNavigate();
+  const [newpassword, setnewpassword] = useState("");
+  const [repeatpassword, setrepeatpassword] = useState("");
+  const visibility =
+    newpassword.trim() !== "" &&
+    repeatpassword.trim() !== "" &&
+    newpassword == repeatpassword;
   if (!user) {
     const error = "sesion no iniciada";
     return <Navigate to={`/error/${error}`} replace />;
   }
-  // const [newpassword, setnewpassword] = useState();
-  // const [repeatpassword, setrepeatpassword] = useState();
   const password = user.password_hash;
   function validator({ actualpassword, newPassword }) {
     if (actualpassword != password) {
@@ -57,10 +58,24 @@ export default function ChangePassword() {
         <label htmlFor="password">Contraseña Actual</label>
         <input type="password" name="password" required />
         <label htmlFor="newPassword">Nueva Contraseña</label>
-        <input type="password" name="newPassword" required />
+        <input
+          type="password"
+          name="newPassword"
+          required
+          onChange={(e) => setnewpassword(e.target.value)}
+        />
         <label htmlFor="RepeatNewPassword">Repita Su Nueva Contraseña</label>
-        <input type="password" name="RepeatNewPassword" required />
-        <button type="submit" className="change-password-button">
+        <input
+          type="password"
+          name="RepeatNewPassword"
+          required
+          onChange={(e) => setrepeatpassword(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="change-password-button"
+          disabled={!visibility}
+        >
           Cambiar Contraseña
         </button>
       </form>
