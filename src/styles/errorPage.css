@@ -1,17 +1,9 @@
-/* ----------------------------------------------------------------- */
-/* ESTILOS GLOBALES DE LA PÁGINA DE ERROR */
-/* ----------------------------------------------------------------- */
 
 .error-container {
-  /* Fondo oscuro consistente */
-  /* background-color: #121212; */
-
-  /* Centra el contenido en el medio de la pantalla */
   display: flex;
   justify-content: center;
   align-items: center;
 
-  /* Ocupa el espacio visible (ajusta este valor si tu header/footer son muy altos) */
   min-height: calc(100vh - 120px);
 
   padding: 20px;
@@ -35,7 +27,7 @@
   display: block;
   border-radius: 8px; 
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7); /* Sombra */
-  border: 3px solid #ffd700; /* Borde amarillo */
+  border: 3px solid #ffd700;
 }
 
 .dynamic-error-message {
@@ -50,7 +42,7 @@
   font-size: 1.4em;
   font-weight: bold;
   text-transform: uppercase;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); /* Sombra */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
 @media (max-width: 768px) {
