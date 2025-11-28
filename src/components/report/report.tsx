@@ -4,7 +4,7 @@ import reportMock from "../../mock/reportMock.json";
 import ReportsCard from "./reportsCard";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../context/userContext";
-import "../../styles/report.css";
+import "../../styles/report/report.css";
 
 export default function Report() {
   const { id } = useParams();
