@@ -4,6 +4,8 @@ import reportMock from "../../mock/reportMock.json";
 import ReportsCard from "./reportsCard";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../context/userContext";
+import "../../styles/report.css";
+
 export default function Report() {
   const { id } = useParams();
   const date = new Date();
@@ -39,39 +41,49 @@ export default function Report() {
     setreportList(updatedReport);
   }
   return (
-    <div>
-      <button onClick={createReport}>Crear reporte</button>
-      <button
-        onClick={() => {
-          setpage(1);
-          navigate("/report");
-        }}
-      >
-        Mostrar Reportes
-      </button>
-      {!report ? (
-        reportListFilter.map((r) => (
-          <div key={r.id_report} className="Report-Cart">
-            <Link to={`/report/${r.id_report}`}>
-              <ReportsCard
-                image={image}
-                date={r.date_generated}
-                username={r.generated_by_user}
-                print={false}
-              />
-            </Link>
-          </div>
-        ))
-      ) : (
-        <ReportsCard
-          image={image}
-          date={report?.date_generated}
-          username={report?.generated_by_user}
-          print={true}
-        />
-      )}
+    <div className="report-page-container">
       {!report && (
-        <div>
+        <div className="report-actions-wrapper">
+          <button onClick={createReport}>Crear reporte</button>
+          <button
+            onClick={() => {
+              setpage(1);
+              navigate("/report");
+            }}
+          >
+            Mostrar Reportes
+          </button>
+        </div>
+      )}
+
+      {!report ? (
+        <div className="report-list-container">
+          {reportListFilter.map((r) => (
+            <div key={r.id_report} className="Report-Cart">
+              <Link to={`/report/${r.id_report}`}>
+                <ReportsCard
+                  image={image}
+                  date={r.date_generated}
+                  username={r.generated_by_user}
+                  print={false}
+                />
+              </Link>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="report-detail-view">
+          <ReportsCard
+            image={image}
+            date={report?.date_generated}
+            username={report?.generated_by_user}
+            print={true}
+          />
+        </div>
+      )}
+
+      {!report && (
+        <div className="pagination-container">
           {page > 1 && (
             <button className="Next-Page" onClick={handleClickPrevious}>
               Pagina anterior
