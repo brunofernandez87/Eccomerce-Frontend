@@ -58,6 +58,10 @@ export default function Profile() {
           <button>Cambiar Contraseña</button>
         </Link>
       </div>
+      <Link to={`/modificateUser`}>
+        <button> Modificar</button>
+      </Link>
+
       <button onClick={logout}>
         <MdLogout /> Cerrar sesion
       </button>

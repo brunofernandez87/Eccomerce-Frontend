@@ -1,0 +1,61 @@
+import { Navigate } from "react-router-dom";
+import { useUser } from "../../context/userContext";
+import { useUserList } from "../../context/userListContext";
+export default function ModificateUser() {
+  const { user, setuser } = useUser();
+  const { userList, setuserList } = useUserList();
+  if (!user) {
+    const error = "Sesion no iniciada";
+    return <Navigate to={`/error/${error}`} replace />;
+  }
+  function modificateUser(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const file = formData.get("image");
+    let image = user.image;
+    if (file && file.size > 0) {
+      image = URL.createObjectURL(file);
+    }
+    const updatedUser = {
+      ...user,
+      email: formData.get("email"),
+      name: formData.get("name"),
+      image: image,
+      username: formData.get("username"),
+    };
+    setuser(updatedUser);
+    const copylist = userList.map((u) => {
+      if (u.id_user === updatedUser.id_user) {
+        return updatedUser;
+      }
+      return u;
+    });
+    setuserList(copylist);
+  }
+  return (
+    <div>
+      <form onSubmit={modificateUser}>
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          defaultValue={user.email}
+          placeholder="Email"
+        />
+        <label>Nombre:</label>
+        <input
+          type="text"
+          name="name"
+          defaultValue={user.name}
+          placeholder="Nombre"
+        />
+        <img src={user.image} alt="Imagen Actual" />
+        <label>Nueva Imagen:</label>
+        <input type="file" name="image" placeholder="Imagen" />
+        <label> Username: </label>
+        <input type="text" name="username" defaultValue={user.username} />
+        <button>Guardar Cambios </button>
+      </form>
+    </div>
+  );
+}
