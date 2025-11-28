@@ -1,6 +1,7 @@
 import { useUser } from "../../context/userContext";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useUserList } from "../../context/userListContext";
+import "../../styles/user/modificateUser.css";
 export default function ModificateUser() {
   const { user, setuser } = useUser();
   const { userList, setuserList } = useUserList();
@@ -35,8 +36,11 @@ export default function ModificateUser() {
     navigate(`/profile/${updatedUser.username}/${updatedUser.password_hash}`);
   }
   return (
-    <div>
-      <form onSubmit={modificateUser}>
+    <div className="user-modification-container">
+      <form onSubmit={modificateUser} className="user-modification-form">
+        <img src={user.image} alt="Imagen Actual" />
+        <label>Nueva Imagen:</label>
+        <input type="file" name="image" placeholder="Imagen" />
         <label>Email:</label>
         <input
           type="email"
@@ -51,9 +55,6 @@ export default function ModificateUser() {
           defaultValue={user.name}
           placeholder="Nombre"
         />
-        <img src={user.image} alt="Imagen Actual" />
-        <label>Nueva Imagen:</label>
-        <input type="file" name="image" placeholder="Imagen" />
         <label> Username: </label>
         <input type="text" name="username" defaultValue={user.username} />
         <button type="submit">Guardar Cambios </button>
