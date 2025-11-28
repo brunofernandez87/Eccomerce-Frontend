@@ -1,9 +1,10 @@
-import { Navigate } from "react-router-dom";
 import { useUser } from "../../context/userContext";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useUserList } from "../../context/userListContext";
 export default function ModificateUser() {
   const { user, setuser } = useUser();
   const { userList, setuserList } = useUserList();
+  const navigate = useNavigate();
   if (!user) {
     const error = "Sesion no iniciada";
     return <Navigate to={`/error/${error}`} replace />;
@@ -31,6 +32,7 @@ export default function ModificateUser() {
       return u;
     });
     setuserList(copylist);
+    navigate(`/profile/${updatedUser.username}/${updatedUser.password_hash}`);
   }
   return (
     <div>
@@ -54,7 +56,7 @@ export default function ModificateUser() {
         <input type="file" name="image" placeholder="Imagen" />
         <label> Username: </label>
         <input type="text" name="username" defaultValue={user.username} />
-        <button>Guardar Cambios </button>
+        <button type="submit">Guardar Cambios </button>
       </form>
     </div>
   );
