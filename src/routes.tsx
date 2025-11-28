@@ -18,10 +18,10 @@ import { Toaster, toast } from "react-hot-toast";
 import { useCart } from "./context/cartContext";
 import AdminGuard from "./components/adminGuard";
 export default function Routs() {
-  const { cartContent, setcartContent } = useCart(); /* pasar a cardProduct */
+  const { addOrUpdateItem } = useCart(); /* pasar a cardProduct */
   function handleAddToCart(product) {
     if (product) {
-      setcartContent([...cartContent, product]);
+      addOrUpdateItem(product);
       toast.success("producto agregado al carrito", { icon: "🛒" });
     }
   }
