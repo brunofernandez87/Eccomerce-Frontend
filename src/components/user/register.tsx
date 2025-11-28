@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useUserList } from "../../context/userListContext";
-import "../../styles/register.css";
+import "../../styles/user/register.css";
 export default function Register() {
   const { userList, setuserList } = useUserList();
   const [email, setemail] = useState("");

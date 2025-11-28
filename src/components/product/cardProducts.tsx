@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import "../../styles/cardsproducts.css";
+import "../../styles/product/cardsproducts.css";
 import FilterCategory from "../filterCategory";
 import SelectProduct from "./selectProduct";
 import SearchProduct from "./searchProduct";

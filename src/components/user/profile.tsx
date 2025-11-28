@@ -5,7 +5,7 @@ import { useUserList } from "../../context/userListContext";
 import { LuEye } from "react-icons/lu";
 import { LuEyeClosed } from "react-icons/lu";
 import { MdLogout } from "react-icons/md";
-import "../../styles/profile.css";
+import "../../styles/user/profile.css";
 export default function Profile() {
   const { userList } = useUserList();
   const [showpassword, setshowpassword] = useState(false);

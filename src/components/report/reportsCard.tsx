@@ -1,4 +1,4 @@
-import "../../styles/reportsCard.css";
+import "../../styles/report/reportsCard.css";
 
 export default function ReportsCard({
   image,
