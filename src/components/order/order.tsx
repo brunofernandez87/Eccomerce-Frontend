@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import { useOrderList } from "../../context/orderListContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import FilterCategory from "../filterCategory";
 export default function Order() {
   const { orderList, setorderList } = useOrderList();
+  const [orderListFilter, setorderListFilter] = useState(orderList);
   const [page, setpage] = useState(1);
   const maxItem = 5;
   const limit = page * maxItem;
   const limitAnt = limit - maxItem;
-  const orderFilter = orderList.slice(limitAnt, limit);
+  const orderFilter = orderListFilter.slice(limitAnt, limit);
+
   function handleClickNext() {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setpage(page + 1);
@@ -16,14 +19,31 @@ export default function Order() {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setpage(page - 1);
   }
+  function filter(event) {
+    const value = event.target.value;
+    if (value == "") {
+      setorderListFilter(orderList);
+      setpage(1);
+      return;
+    }
+    const result = orderList.filter((o) => o.id_user == value);
+    setpage(1);
+    setorderListFilter(result);
+  }
   return (
     <div>
+      <FilterCategory
+        products={orderList}
+        filter={filter}
+        label={"buscar orden de"}
+        category={"id_user"}
+      />
       {orderFilter.map((o) => (
         <div key={o.id_order}>
           <Link to={`/orderDetail/${o?.id_order}`}>
             <p>fecha:{o?.date}</p>
             <p>estado:{o?.state}</p>
-
+            <p> usuario: {o?.id_user}</p>
             <p>total:{o?.total}</p>
           </Link>
           {(o.state == "en preparacion" || o.state == "en camino") && (

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import "../../styles/cardsproducts.css";
+import "../../styles/product/cardsproducts.css";
 import FilterCategory from "../filterCategory";
 import SelectProduct from "./selectProduct";
 import SearchProduct from "./searchProduct";
@@ -49,7 +49,12 @@ export default function CardProducts() {
         productFilt={productFilt}
         setproductfilter={setproductfilter}
       />
-      <FilterCategory products={productFilt} categoryFilter={categoryFilter} />
+      <FilterCategory
+        products={productFilt}
+        category="category"
+        filter={categoryFilter}
+        label={"ordenar por"}
+      />
       <SelectProduct
         productfilter={productfilter}
         setpage={setpage}

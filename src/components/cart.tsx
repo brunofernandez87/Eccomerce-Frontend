@@ -8,7 +8,7 @@ import { useOrderList } from "../context/orderListContext";
 import { useOrderDetailList } from "../context/orderDetailListContext";
 const getProductImage = (product) => product.image;
 export default function Cart() {
-  const { orderDetailList, setorderDetailList } = useOrderDetailList();
+  const { setorderDetailList } = useOrderDetailList();
   const { user } = useUser();
   const { allOrders, setorderList } = useOrderList();
   const { cartContent, setcartContent, updateQuantity } = useCart(); // Calcula el total a pagar

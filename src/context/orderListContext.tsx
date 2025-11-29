@@ -17,7 +17,11 @@ export default function OrderListProvider({ children }) {
 
   return (
     <orderListContext.Provider
-      value={{ orderList: filteredOrders, setorderList, allOrders: orderList }}
+      value={{
+        orderList: filteredOrders,
+        setorderList,
+        allOrders: orderList,
+      }}
     >
       {children}
     </orderListContext.Provider>
