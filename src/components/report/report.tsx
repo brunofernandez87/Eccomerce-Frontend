@@ -55,12 +55,6 @@ export default function Report() {
   }
   return (
     <div className="report-page-container">
-      <FilterCategory
-        products={reportList}
-        category={"generated_by_user"}
-        filter={filterReport}
-        label={"Visualizar el reporte de"}
-      />
       {!report && (
         <div className="report-actions-wrapper">
           <button onClick={createReport}>Crear reporte</button>
@@ -77,6 +71,12 @@ export default function Report() {
 
       {!report ? (
         <div className="report-list-container">
+          <FilterCategory
+            products={reportList}
+            category={"generated_by_user"}
+            filter={filterReport}
+            label={"Visualizar el reporte de"}
+          />
           {reports.map((r) => (
             <div key={r.id_report} className="Report-Cart">
               <Link to={`/report/${r.id_report}`}>
