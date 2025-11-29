@@ -1,12 +1,9 @@
 import "../../styles/report/reportsCard.css";
 
-export default function ReportsCard({
-  image,
-  date,
-  username,
-  print,
-  clickPrint,
-}) {
+export default function ReportsCard({ image, date, username, print }) {
+  function clickPrint() {
+    alert("Imprimiendoo");
+  }
   return (
     <div className={`reports-card-content ${print ? "is-detail-view" : ""}`}>
       <div>
