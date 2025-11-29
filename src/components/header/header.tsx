@@ -3,7 +3,11 @@ import logo from "../../assets/Logo eccomerce.jpeg";
 import { useUser } from "../../context/userContext";
 import { FaShoppingCart } from "react-icons/fa";
 import "../../styles/header.css";
+import { useProductList } from "../../context/productListContext";
+import { useProductFilter } from "../../context/productFilterContext";
 export default function Header() {
+  const { productList } = useProductList();
+  const { setproductfilter } = useProductFilter();
   const { user } = useUser();
   return (
     <header className="header-main">
@@ -11,7 +15,14 @@ export default function Header() {
         <img src={logo} alt="Logo jpg" />
       </div>
       <nav className="Nav-header">
-        <Link to="/" title="Home" className="a-header">
+        <Link
+          to="/"
+          title="Home"
+          className="a-header"
+          onClick={() => {
+            setproductfilter(productList);
+          }}
+        >
           <button>Inicio</button>
         </Link>
         <Link to="/contact">
