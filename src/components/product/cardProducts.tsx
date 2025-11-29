@@ -6,17 +6,18 @@ import SelectProduct from "./selectProduct";
 import SearchProduct from "./searchProduct";
 import { useUser } from "../../context/userContext";
 import { useProductList } from "../../context/productListContext";
+import { useProductFilter } from "../../context/productFilterContext";
 export default function CardProducts() {
   const { productList, setproductList } = useProductList();
   const [page, setpage] = useState(1);
   const productFilt = useMemo(() => {
     return productList.filter((p) => p.stock > 0);
   }, [productList]);
+  const { productfilter, setproductfilter } = useProductFilter();
   useEffect(() => {
     setproductfilter(productList);
-  }, [productList]);
+  }, [productList, setproductfilter]);
   const { user } = useUser();
-  const [productfilter, setproductfilter] = useState(productFilt);
   const maxProduct = 5;
   const limite = page * maxProduct;
   const limiteant = limite - maxProduct;
