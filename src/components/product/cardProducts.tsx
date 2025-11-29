@@ -49,7 +49,12 @@ export default function CardProducts() {
         productFilt={productFilt}
         setproductfilter={setproductfilter}
       />
-      <FilterCategory products={productFilt} categoryFilter={categoryFilter} />
+      <FilterCategory
+        products={productFilt}
+        category="category"
+        filter={categoryFilter}
+        label={"ordenar por"}
+      />
       <SelectProduct
         productfilter={productfilter}
         setpage={setpage}
