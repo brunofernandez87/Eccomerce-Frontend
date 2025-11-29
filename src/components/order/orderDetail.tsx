@@ -1,6 +1,7 @@
 import { Navigate, useParams } from "react-router-dom";
 import { useOrderDetailList } from "../../context/orderDetailListContext";
 import { useProductList } from "../../context/productListContext";
+import "../../styles/order/orderDetail.css";
 export default function OrderDetail() {
   const { productList } = useProductList();
   const { id } = useParams();
@@ -11,11 +12,11 @@ export default function OrderDetail() {
     return <Navigate to={`/error/${error}`} replace />;
   }
   return (
-    <div>
+    <div className="order-detail-container">
       {detail.map((d) => {
         const product = productList.find((p) => p.id_product == d.id_product);
         return (
-          <div key={d.id_detail}>
+          <div key={d.id_detail} className="order-detail-item">
             <p> producto:{product?.name || "Desconocido"}</p>
             <p>monto:{d?.amount}</p>
             <p>precio unitario:{d?.unit_price}</p>
