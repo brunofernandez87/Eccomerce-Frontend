@@ -1,10 +1,15 @@
-export default function SearchProduct({ productFilt, setproductfilter }) {
+export default function SearchProduct({
+  productFilt,
+  setproductfilter,
+  category,
+}) {
   function searchProduct(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const name = formData.get("search");
     const result = productFilt.filter((p) => {
-      return p.name.toLowerCase().includes(name);
+      const value = p[category];
+      return value.toLowerCase().includes(name);
     });
     setproductfilter(result);
   }

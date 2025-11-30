@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import "../../styles/product/cardsproducts.css";
 import FilterCategory from "../filterCategory";
 import SelectProduct from "./selectProduct";
-import SearchProduct from "./searchProduct";
+import SearchProduct from "./searchCategory";
 import { useUser } from "../../context/userContext";
 import { useProductList } from "../../context/productListContext";
 import { useProductFilter } from "../../context/productFilterContext";
@@ -49,6 +49,7 @@ export default function CardProducts() {
       <SearchProduct
         productFilt={productFilt}
         setproductfilter={setproductfilter}
+        category="name"
       />
       <FilterCategory
         products={productFilt}
