@@ -9,6 +9,8 @@ import { useUserList } from "../../context/userListContext";
 import { useUserListFilter } from "../../context/userListFilterContext";
 import { useReportList } from "../../context/reportListContext";
 import { useReportListFilter } from "../../context/reportListFilterContext";
+import { useOrderList } from "../../context/orderListContext";
+import { useOrderListFilter } from "../../context/orderListFilterContext";
 export default function Header() {
   const { productList } = useProductList();
   const { setproductfilter } = useProductFilter();
@@ -16,6 +18,8 @@ export default function Header() {
   const { setuserListFilter } = useUserListFilter();
   const { reportList } = useReportList();
   const { setreportListFilter } = useReportListFilter();
+  const { orderList } = useOrderList();
+  const { setorderListFilter } = useOrderListFilter();
   const { user } = useUser();
   return (
     <header className="header-main">
@@ -46,7 +50,13 @@ export default function Header() {
               <button>Perfil </button>
             </Link>
             {user.rol === "vendedor" ? (
-              <Link to="/order" title="Ordenes">
+              <Link
+                to="/order"
+                title="Ordenes"
+                onClick={() => {
+                  setorderListFilter(orderList);
+                }}
+              >
                 <button> Pedidos </button>
               </Link>
             ) : (

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import image from "../../assets/mockReporte.jpg";
-import reportMock from "../../mock/reportMock.json";
 import ReportsCard from "./reportsCard";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../context/userContext";
@@ -25,7 +24,7 @@ export default function Report() {
   const navigate = useNavigate();
   let report = null;
   if (id) {
-    report = reportMock.find((r) => r.id_report == parseInt(id));
+    report = reportList.find((r) => r.id_report == parseInt(id));
   }
   function handleClickPrevious() {
     setpage(page - 1);
@@ -48,7 +47,7 @@ export default function Report() {
   function filterReport(event) {
     const value = event.target.value;
     if (value == "") {
-      setreportListFilter(reportMock);
+      setreportListFilter(reportList);
       setpage(1);
       return;
     }
