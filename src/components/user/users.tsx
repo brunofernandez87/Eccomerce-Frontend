@@ -3,6 +3,7 @@ import { useUserList } from "../../context/userListContext";
 import { useUserListFilter } from "../../context/userListFilterContext";
 import SearchCategory from "../product/searchCategory";
 import FilterCategory from "../filterCategory";
+import "../../styles/user/users.css";
 
 export default function Users() {
   const { userList, setuserList } = useUserList();
@@ -32,7 +33,7 @@ export default function Users() {
     setuserListFilter(result);
   }
   return (
-    <>
+    <div className="user-list-page">
       <SearchCategory
         productFilt={userList}
         setproductfilter={setuserListFilter}
@@ -45,40 +46,50 @@ export default function Users() {
         filter={filterUser}
         label="ordenar por"
       />
-      {users.map((u) => (
-        <div key={u.id_user}>
-          <div className="Image-Profile">
-            <img src={u.image} alt="Profile.png" />
+      <div className="user-card-wrapper">
+        {users.map((u) => (
+          <div key={u.id_user} className="user-card-item">
+            <div className="Image-Profile">
+              <img src={u.image} alt="Profile.png" />
+            </div>
+            <div className="user-info-group">
+              <div className="user-name-username">
+                <p>
+                  Nombre: <strong>{u.name}</strong>
+                </p>
+                <p>
+                  Username: <strong>{u.username}</strong>
+                </p>
+              </div>
+              <div className="Email-Profile">
+                <p>
+                  Email: <strong>{u.email}</strong>
+                </p>
+              </div>
+            </div>
+            <div className="user-role">
+              <p>
+                Rol: <strong>{u.rol}</strong>
+              </p>
+            </div>
+            {u.rol === "cliente" && (
+              <button
+                onClick={() => {
+                  setuserList((prevList) =>
+                    prevList.filter((user) => user.id_user !== u.id_user)
+                  );
+                  setuserListFilter((prevFilter) =>
+                    prevFilter.filter((user) => user.id_user !== u.id_user)
+                  );
+                }}
+              >
+                X
+              </button>
+            )}
           </div>
-          <div className="Username-Profile">
-            <p> Nombre: {u.name}</p>
-          </div>
-          <div className="Username-Profile">
-            <p>Username: {u.username}</p>
-          </div>
-          <div className="Email-Profile">
-            <p>Email: {u.email}</p>
-          </div>
-          <div>
-            <p>Rol: {u.rol}</p>
-          </div>
-          {u.rol == "cliente" && (
-            <button
-              onClick={() => {
-                setuserList((prevList) =>
-                  prevList.filter((user) => user.id_user !== u.id_user)
-                );
-                setuserListFilter((prevFilter) =>
-                  prevFilter.filter((user) => user.id_user !== u.id_user)
-                );
-              }}
-            >
-              X
-            </button>
-          )}
-        </div>
-      ))}
-      <div>
+        ))}
+      </div>
+      <div className="pagination-container">
         {page > 1 && (
           <button className="Next-Page" onClick={handleClickPrevious}>
             Pagina anterior
@@ -90,6 +101,6 @@ export default function Users() {
           </button>
         )}
       </div>
-    </>
+    </div>
   );
 }

@@ -39,12 +39,6 @@ export default function Header() {
 
         {user ? (
           <>
-            <Link
-              to={`/profile/${user.username}/${user.password_hash}`}
-              title="Perfil"
-            >
-              <button>Perfil </button>
-            </Link>
             {user.rol === "vendedor" ? (
               <Link to="/order" title="Ordenes">
                 <button> Pedidos </button>
@@ -79,6 +73,12 @@ export default function Header() {
                 </Link>
               </>
             )}
+            <Link
+              to={`/profile/${user.username}/${user.password_hash}`}
+              title="Perfil"
+            >
+              <button>Perfil </button>
+            </Link>
           </>
         ) : (
           <Link to="/login" title="Iniciar Sesion">
