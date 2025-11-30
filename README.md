@@ -64,26 +64,36 @@ npm run build
 npm run preview
 ```
 
-🧪 Funcionalidades
+## 🧪 Funcionalidades
 
-✔️ Listado de productos
-✔️ Vista detallada de productos
-✔️ Carrito de compras
-✔️ Filtros por categoría / tipo
-✔️ Diseño 100% responsive
+- ✔️ Listado de productos
 
-⏳ Comunicación con API externa (en proceso)
+- ✔️ Vista detallada de productos
 
-✔️ Checkout
-✔️ Login / registro
+- ✔️ Carrito de compras
+
+- ✔️ Filtros por categoría / tipo
+
+- ✔️ Diseño 100% responsive
+
+
+### ⏳ Comunicación con API externa (en proceso)
+
+- ✔️ Checkout
+- ✔️ Login / registro
 
 ### 📦 Scripts del Proyecto
 
-nginx
+**NGINX**
 ```ruby
-npm run dev       # Inicia el servidor de desarrollo
-npm run build     # Compila para producción
-npm run preview   # Previsualiza la build
+# Inicia el servidor de desarrollo
+npm run dev
+
+# Compila para producción
+npm run build
+
+# Previsualiza la build
+npm run preview
 ```
 
 ## 🐳 Despliegue con Docker
