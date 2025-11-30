@@ -10,6 +10,8 @@ import OrderListProvider from "./context/orderListContext";
 import OrderDetailListProvider from "./context/orderDetailListContext";
 import { ProductFilterProvider } from "./context/productFilterContext";
 import { UserListFilterProvider } from "./context/userListFilterContext";
+import { ReportListProvider } from "./context/reportListContext";
+import { ReportListFilterProvider } from "./context/reportListFilterContext";
 function App() {
   return (
     <UserProvider>
@@ -17,14 +19,18 @@ function App() {
         <ProductFilterProvider>
           <UserListProvider>
             <UserListFilterProvider>
-              <Header />
-              <CartProvider>
-                <OrderListProvider>
-                  <OrderDetailListProvider>
-                    <Routs />
-                  </OrderDetailListProvider>
-                </OrderListProvider>
-              </CartProvider>
+              <ReportListProvider>
+                <ReportListFilterProvider>
+                  <Header />
+                  <CartProvider>
+                    <OrderListProvider>
+                      <OrderDetailListProvider>
+                        <Routs />
+                      </OrderDetailListProvider>
+                    </OrderListProvider>
+                  </CartProvider>
+                </ReportListFilterProvider>
+              </ReportListProvider>
             </UserListFilterProvider>
           </UserListProvider>
         </ProductFilterProvider>

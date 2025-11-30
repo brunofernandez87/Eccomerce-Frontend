@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useUserList } from "../../context/userListContext";
 import { useUserListFilter } from "../../context/userListFilterContext";
-import SearchProduct from "../product/searchCategory";
+import SearchCategory from "../product/searchCategory";
 import FilterCategory from "../filterCategory";
 
 export default function Users() {
@@ -33,10 +33,11 @@ export default function Users() {
   }
   return (
     <>
-      <SearchProduct
+      <SearchCategory
         productFilt={userList}
         setproductfilter={setuserListFilter}
         category="name"
+        label="Buscar Usuario"
       />
       <FilterCategory
         products={userList}
