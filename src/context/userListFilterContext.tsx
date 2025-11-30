@@ -15,7 +15,9 @@ export function UserListFilterProvider({ children }) {
 export function useUserListFilter() {
   const context = useContext(userListFilterContext);
   if (!context) {
-    throw new Error("userList debe ser usado dentro de un userListProvider");
+    throw new Error(
+      "userListFilter debe ser usado dentro de un userListProvider"
+    );
   }
   return context;
 }
