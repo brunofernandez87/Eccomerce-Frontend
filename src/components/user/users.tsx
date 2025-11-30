@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useUserList } from "../../context/userListContext";
 import { useUserListFilter } from "../../context/userListFilterContext";
 import SearchProduct from "../product/searchCategory";
+import FilterCategory from "../filterCategory";
 
 export default function Users() {
   const { userList, setuserList } = useUserList();
@@ -19,12 +20,29 @@ export default function Users() {
     setpage(page - 1);
   }
   const users = userListFilter.slice(limitant, limit);
+  function filterUser(event) {
+    const value = event.target.value;
+    if (value == "") {
+      setuserListFilter(userList);
+      setpage(1);
+      return;
+    }
+    const result = userList.filter((u) => u.rol == value);
+    setpage(1);
+    setuserListFilter(result);
+  }
   return (
     <>
       <SearchProduct
         productFilt={userList}
         setproductfilter={setuserListFilter}
         category="name"
+      />
+      <FilterCategory
+        products={userList}
+        category="rol"
+        filter={filterUser}
+        label="ordenar por"
       />
       {users.map((u) => (
         <div key={u.id_user}>
@@ -40,18 +58,23 @@ export default function Users() {
           <div className="Email-Profile">
             <p>Email: {u.email}</p>
           </div>
-          <button
-            onClick={() => {
-              setuserList((prevList) =>
-                prevList.filter((user) => user.id_user !== u.id_user)
-              );
-              setuserListFilter((prevFilter) =>
-                prevFilter.filter((user) => user.id_user !== u.id_user)
-              );
-            }}
-          >
-            X
-          </button>
+          <div>
+            <p>Rol: {u.rol}</p>
+          </div>
+          {u.rol == "cliente" && (
+            <button
+              onClick={() => {
+                setuserList((prevList) =>
+                  prevList.filter((user) => user.id_user !== u.id_user)
+                );
+                setuserListFilter((prevFilter) =>
+                  prevFilter.filter((user) => user.id_user !== u.id_user)
+                );
+              }}
+            >
+              X
+            </button>
+          )}
         </div>
       ))}
       <div>
