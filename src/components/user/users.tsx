@@ -18,7 +18,15 @@ export default function Users() {
           <div className="Email-Profile">
             <p>Email: {u.email}</p>
           </div>
-          <button>X</button>
+          <button
+            onClick={() => {
+              setuserList(
+                userList.filter((user) => user.id_user !== u.id_user)
+              );
+            }}
+          >
+            X
+          </button>
         </div>
       ))}
     </>
