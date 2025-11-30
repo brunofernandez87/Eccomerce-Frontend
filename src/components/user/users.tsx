@@ -42,8 +42,11 @@ export default function Users() {
           </div>
           <button
             onClick={() => {
-              setuserList(
-                userList.filter((user) => user.id_user !== u.id_user)
+              setuserList((prevList) =>
+                prevList.filter((user) => user.id_user !== u.id_user)
+              );
+              setuserListFilter((prevFilter) =>
+                prevFilter.filter((user) => user.id_user !== u.id_user)
               );
             }}
           >
