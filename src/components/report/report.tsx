@@ -6,14 +6,17 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../context/userContext";
 import "../../styles/report/report.css";
 import FilterCategory from "../filterCategory";
+import { useReportList } from "../../context/reportListContext";
+import { useReportListFilter } from "../../context/reportListFilterContext";
+import SearchCategory from "../product/searchCategory";
 
 export default function Report() {
   const { id } = useParams();
   const date = new Date();
   const { user } = useUser();
   const [page, setpage] = useState(1);
-  const [reportList, setreportList] = useState(reportMock);
-  const [reportListFilter, setreportListFilter] = useState(reportList);
+  const { reportList, setreportList } = useReportList();
+  const { reportListFilter, setreportListFilter } = useReportListFilter();
   // esto mas adelante lo va a realizar el back es de ejemplo
   const maxReports = 5;
   const limite = page * maxReports;
@@ -55,6 +58,12 @@ export default function Report() {
   }
   return (
     <div className="report-page-container">
+      <SearchCategory
+        productFilt={reportList}
+        setproductfilter={setreportListFilter}
+        category="date_generated"
+        label="Buscar por fecha DD/MM/YY"
+      />
       {!report && (
         <div className="report-actions-wrapper">
           <button onClick={createReport}>Crear reporte</button>
@@ -108,7 +117,7 @@ export default function Report() {
               Pagina anterior
             </button>
           )}
-          {limite < reportList.length && (
+          {limite < reportListFilter.length && (
             <button className="Previous-Page" onClick={handleClickNext}>
               Pagina siguiente
             </button>
