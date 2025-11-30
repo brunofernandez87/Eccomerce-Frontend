@@ -72,6 +72,16 @@
   margin-top: 10px;
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
+.contact-container button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed; /* Muestra el símbolo de "prohibido */
+  transform: none;
+  opacity: 0.7;
+}
+.contact-container button:disabled:hover {
+  background-color: #cccccc;
+}
 
 .contact-container button:hover {
   background-color: #e6c200; /* Tono ligeramente más oscuro al pasar el mouse */

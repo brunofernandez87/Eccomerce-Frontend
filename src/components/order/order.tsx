@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 import { useOrderList } from "../../context/orderListContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FilterCategory from "../filterCategory";
 import "../../styles/order/order.css";
+import { useOrderListFilter } from "../../context/orderListFilterContext";
+import SearchCategory from "../product/searchCategory";
 export default function Order() {
   const { orderList, setorderList } = useOrderList();
-  const [orderListFilter, setorderListFilter] = useState(orderList);
+  const { orderListFilter, setorderListFilter } = useOrderListFilter();
   const [page, setpage] = useState(1);
   const maxItem = 5;
   const limit = page * maxItem;
   const limitAnt = limit - maxItem;
-  const orderFilter = orderListFilter.slice(limitAnt, limit);
+  const safeList = orderListFilter || [];
+  const orderFilter = safeList.slice(limitAnt, limit);
 
   function handleClickNext() {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -39,6 +42,12 @@ export default function Order() {
         label={"buscar orden de"}
         category={"id_user"}
       />
+      <SearchCategory
+        productFilt={orderList}
+        setproductfilter={setorderListFilter}
+        category="date"
+        label="buscar por fecha DD/MM/YY"
+      />
       <div className="order-card-wrapper">
         {orderFilter.map((o) => (
           <div key={o.id_order} className="order-card">
@@ -61,6 +70,9 @@ export default function Order() {
                   setorderList((prevList) =>
                     prevList.filter((r) => r.id_order !== o.id_order)
                   );
+                  setorderListFilter((prevFilter) =>
+                    prevFilter.filter((r) => r.id_order !== o.id_order)
+                  );
                   alert("Pedido eliminado");
                 }}
               >
@@ -76,7 +88,7 @@ export default function Order() {
             Página anterior
           </button>
         )}
-        {limit < orderList.length && (
+        {limit < orderListFilter.length && (
           <button className="Previous-Page" onClick={handleClickNext}>
             Página siguiente
           </button>
