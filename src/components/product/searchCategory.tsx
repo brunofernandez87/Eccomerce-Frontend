@@ -1,9 +1,10 @@
-export default function SearchProduct({
+export default function SearchCategory({
   productFilt,
   setproductfilter,
   category,
+  label,
 }) {
-  function searchProduct(event) {
+  function searchCategory(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const name = formData.get("search");
@@ -14,8 +15,8 @@ export default function SearchProduct({
     setproductfilter(result);
   }
   return (
-    <form onSubmit={searchProduct} className="form-Product">
-      <input type="search" name="search" id="search" placeholder="Buscar" />
+    <form onSubmit={searchCategory} className="form-Product">
+      <input type="search" name="search" id="search" placeholder={label} />
       <button id="botton-search">🔍</button>
     </form>
   );
