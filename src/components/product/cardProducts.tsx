@@ -91,8 +91,8 @@ export default function CardProducts() {
                 /* al ser admin podes eliminar */ <button
                   className="Delete-Button"
                   onClick={() => {
-                    setproductList(
-                      productfilter.filter(
+                    setproductList((prevlist) =>
+                      prevlist.filter(
                         (p) => p.id_product !== product.id_product
                       )
                     );
