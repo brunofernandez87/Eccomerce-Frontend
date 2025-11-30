@@ -62,7 +62,7 @@ export default function Report() {
         productFilt={reportList}
         setproductfilter={setreportListFilter}
         category="date_generated"
-        label="Buscar por fecha MM/DD/YY"
+        label="Buscar por fecha DD/MM/YY"
       />
       {!report && (
         <div className="report-actions-wrapper">
