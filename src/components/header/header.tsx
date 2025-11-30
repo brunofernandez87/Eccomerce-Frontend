@@ -5,9 +5,13 @@ import { FaShoppingCart } from "react-icons/fa";
 import "../../styles/header.css";
 import { useProductList } from "../../context/productListContext";
 import { useProductFilter } from "../../context/productFilterContext";
+import { useUserList } from "../../context/userListContext";
+import { useUserListFilter } from "../../context/userListFilterContext";
 export default function Header() {
   const { productList } = useProductList();
   const { setproductfilter } = useProductFilter();
+  const { userList } = useUserList();
+  const { setuserListFilter } = useUserListFilter();
   const { user } = useUser();
   return (
     <header className="header-main">
@@ -54,7 +58,13 @@ export default function Header() {
                 <Link to="/create" title="Crear Producto">
                   <button>Crear Producto</button>
                 </Link>
-                <Link to="/users" title="Usuarios">
+                <Link
+                  to="/users"
+                  title="Usuarios"
+                  onClick={() => {
+                    setuserListFilter(userList);
+                  }}
+                >
                   <button> Ver usuarios</button>
                 </Link>
               </>

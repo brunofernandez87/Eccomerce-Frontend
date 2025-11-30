@@ -9,21 +9,24 @@ import { UserListProvider } from "./context/userListContext";
 import OrderListProvider from "./context/orderListContext";
 import OrderDetailListProvider from "./context/orderDetailListContext";
 import { ProductFilterProvider } from "./context/productFilterContext";
+import { UserListFilterProvider } from "./context/userListFilterContext";
 function App() {
   return (
     <UserProvider>
       <ProductListProvider>
         <ProductFilterProvider>
-          <Header />
-          <CartProvider>
-            <UserListProvider>
-              <OrderListProvider>
-                <OrderDetailListProvider>
-                  <Routs />
-                </OrderDetailListProvider>
-              </OrderListProvider>
-            </UserListProvider>
-          </CartProvider>
+          <UserListProvider>
+            <UserListFilterProvider>
+              <Header />
+              <CartProvider>
+                <OrderListProvider>
+                  <OrderDetailListProvider>
+                    <Routs />
+                  </OrderDetailListProvider>
+                </OrderListProvider>
+              </CartProvider>
+            </UserListFilterProvider>
+          </UserListProvider>
         </ProductFilterProvider>
       </ProductListProvider>
       <Footer />
