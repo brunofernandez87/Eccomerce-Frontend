@@ -54,6 +54,9 @@ export default function Header() {
                 <Link to="/create" title="Crear Producto">
                   <button>Crear Producto</button>
                 </Link>
+                <Link to="/users" title="Usuarios">
+                  <button> Ver usuarios</button>
+                </Link>
               </>
             )}
           </>
