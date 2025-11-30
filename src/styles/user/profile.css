@@ -29,7 +29,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #f8f138; /* Borde de color acento (Indigo) */
+  border: 4px solid #f8f138; /* Borde de color*/
   padding: 3px; /* Espacio entre foto y borde */
   box-shadow: 0 10px 20px rgba(241, 246, 93, 0.3);
 }
@@ -74,7 +74,7 @@
   font-weight: 500;
 }
 
-/* Botón del Ojo (Toggle Password) */
+/* Botón del Ojo */
 .Password-Profile button {
   background: transparent;
   border: none;
@@ -122,8 +122,6 @@
 .ChangePassword-Profile button:hover {
   transform: scale(1.02);
 }
-
-/* Botón Cerrar Sesión (Logout) */
 .Div-Profile > button:last-child {
   margin-top: 15px;
   background-color: transparent;

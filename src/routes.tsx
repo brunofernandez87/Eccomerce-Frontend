@@ -18,6 +18,7 @@ import { Toaster, toast } from "react-hot-toast";
 import { useCart } from "./context/cartContext";
 import AdminGuard from "./components/adminGuard";
 import ModificateUser from "./components/user/modificateUser";
+import Users from "./components/user/users";
 export default function Routs() {
   const { addOrUpdateItem } = useCart(); /* pasar a cardProduct */
   function handleAddToCart(product) {
@@ -50,6 +51,7 @@ export default function Routs() {
           <Route path="/report" element={<Report />} />
           <Route path="/report/:id" element={<Report />} />
           <Route path="/create" element={<CreateProduct />} />
+          <Route path="/users" element={<Users />} />
         </Route>
       </Routes>
       <Toaster position="top-center" reverseOrder={false} />

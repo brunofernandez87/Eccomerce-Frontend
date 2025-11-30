@@ -1,4 +1,3 @@
-/* Contenedor principal del Header */
 .header-main {
   background-color: #222222;
   padding: 10px 20px;
@@ -7,13 +6,12 @@
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 2px solid #ffe100; /* Borde inferior oscuro */
-  color: #ffffff; /* Texto claro sobre fondo oscuro */
+  border-bottom: 2px solid #ffe100;
+  color: #ffffff; 
   font-family: Arial, sans-serif;
   gap: 20px;
 }
 
-/* Estilos del Logo */
 .Logo {
   flex-shrink: 0;
 }
@@ -23,28 +21,26 @@
   object-fit: contain;
 }
 
-/* Navegación (Contenedor de enlaces y botones) */
 .Nav-header {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centrado horizontal */
+  justify-content: center;
   gap: 10px;
   align-items: center;
-  /* ✅ Ajuste para el tamaño: Limitar el ancho y centrar la navegación en sí */
-  max-width: 800px; /* Puedes ajustar este valor según el espacio deseado */
-  width: 100%; /* Ocupa el 100% del espacio permitido */
-  margin: 0 auto; /* Centra el bloque de navegación */
-  flex-grow: 1; /* Permite que la navegación intente expandirse, pero el max-width lo limita */
+  max-width: 800px; 
+  width: 100%;
+  margin: 0 auto; 
+  flex-grow: 1;
 }
 
 .Nav-header a:not(:has(button)) {
   text-decoration: none;
-  background-color: #ffd700; /* ✅ Fondo amarillo para contraste */
-  color: #222222; /* ✅ Texto oscuro */
+  background-color: #ffd700;
+  color: #222222; 
   padding: 8px 12px;
   font-size: 0.9em;
   font-weight: 500;
-  border: 1px solid #c2a800; /* Borde oscuro */
+  border: 1px solid #c2a800; 
   border-radius: 4px;
   transition: background-color 0.2s ease, border-color 0.2s ease,
     color 0.2s ease;
@@ -52,11 +48,10 @@
   align-items: center;
 }
 
-/* 2. Estilos de todos los botones */
 .Nav-header button {
-  background-color: #ffd700; /* ✅ Fondo amarillo para contraste */
-  color: #222222; /* ✅ Texto oscuro */
-  border: 1px solid #c2a800; /* Borde oscuro para contraste */
+  background-color: #ffd700;
+  color: #222222; 
+  border: 1px solid #c2a800; 
   padding: 8px 12px;
   border-radius: 4px;
   cursor: pointer;
@@ -74,16 +69,14 @@
   font-size: 1.1em;
 }
 
-/* Efecto HOVER (para enlaces de texto y botones) */
 .Nav-header button:hover,
 .Nav-header a:not(:has(button)):hover {
-  background-color: #e6c200; /* Tono de amarillo ligeramente más oscuro para hover */
+  background-color: #e6c200;
   color: #222222;
   border-color: #e6c200;
   outline: none;
 }
 
-/* Efecto FOCUS (Solución para que no se quede marcado) */
 .Nav-header button:focus,
 .Nav-header a:not(:has(button)):focus {
   /* Devuelve el elemento al estilo normal después de ser presionado */
@@ -96,7 +89,6 @@
 @media (max-width: 900px) {
   .header-main {
     flex-direction: column;
-    /* ✅ CORRECCIÓN: Centra el Logo horizontalmente cuando están apilados */
     align-items: center;
     padding: 15px 10px;
   }
@@ -104,7 +96,6 @@
   .Nav-header {
     width: 100%;
     max-width: none;
-    /* Mantenemos la distribución del espacio entre los botones */
     justify-content: space-around;
     margin-top: 10px;
     margin-left: 0;

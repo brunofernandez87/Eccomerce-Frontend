@@ -1,19 +1,21 @@
 import { useState } from "react";
 import image from "../../assets/mockReporte.jpg";
-import reportMock from "../../mock/reportMock.json";
 import ReportsCard from "./reportsCard";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../context/userContext";
 import "../../styles/report/report.css";
 import FilterCategory from "../filterCategory";
+import { useReportList } from "../../context/reportListContext";
+import { useReportListFilter } from "../../context/reportListFilterContext";
+import SearchCategory from "../product/searchCategory";
 
 export default function Report() {
   const { id } = useParams();
   const date = new Date();
   const { user } = useUser();
   const [page, setpage] = useState(1);
-  const [reportList, setreportList] = useState(reportMock);
-  const [reportListFilter, setreportListFilter] = useState(reportList);
+  const { reportList, setreportList } = useReportList();
+  const { reportListFilter, setreportListFilter } = useReportListFilter();
   // esto mas adelante lo va a realizar el back es de ejemplo
   const maxReports = 5;
   const limite = page * maxReports;
@@ -22,7 +24,7 @@ export default function Report() {
   const navigate = useNavigate();
   let report = null;
   if (id) {
-    report = reportMock.find((r) => r.id_report == parseInt(id));
+    report = reportList.find((r) => r.id_report == parseInt(id));
   }
   function handleClickPrevious() {
     setpage(page - 1);
@@ -45,7 +47,7 @@ export default function Report() {
   function filterReport(event) {
     const value = event.target.value;
     if (value == "") {
-      setreportListFilter(reportMock);
+      setreportListFilter(reportList);
       setpage(1);
       return;
     }
@@ -55,11 +57,11 @@ export default function Report() {
   }
   return (
     <div className="report-page-container">
-      <FilterCategory
-        products={reportList}
-        category={"generated_by_user"}
-        filter={filterReport}
-        label={"Visualizar el reporte de"}
+      <SearchCategory
+        productFilt={reportList}
+        setproductfilter={setreportListFilter}
+        category="date_generated"
+        label="Buscar por fecha DD/MM/YY"
       />
       {!report && (
         <div className="report-actions-wrapper">
@@ -77,6 +79,12 @@ export default function Report() {
 
       {!report ? (
         <div className="report-list-container">
+          <FilterCategory
+            products={reportList}
+            category={"generated_by_user"}
+            filter={filterReport}
+            label={"Visualizar el reporte de"}
+          />
           {reports.map((r) => (
             <div key={r.id_report} className="Report-Cart">
               <Link to={`/report/${r.id_report}`}>
@@ -108,7 +116,7 @@ export default function Report() {
               Pagina anterior
             </button>
           )}
-          {limite < reportList.length && (
+          {limite < reportListFilter.length && (
             <button className="Previous-Page" onClick={handleClickNext}>
               Pagina siguiente
             </button>
