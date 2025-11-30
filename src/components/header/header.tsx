@@ -52,7 +52,7 @@ export default function Header() {
             {user.rol === "vendedor" ? (
               <Link
                 to="/order"
-                title="Ordenes"
+                title="Pedidos"
                 onClick={() => {
                   setorderListFilter(orderList);
                 }}
@@ -60,7 +60,7 @@ export default function Header() {
                 <button> Pedidos </button>
               </Link>
             ) : (
-              <Link to={"/order"} title="Ordenes">
+              <Link to={"/order"} title="Pedidos">
                 <button> Mis Pedidos </button>
               </Link>
             )}
